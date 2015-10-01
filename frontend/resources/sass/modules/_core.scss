@@ -1,0 +1,18 @@
+/**
+ * General CSS
+ */
+
+.padding {
+    padding:10px 15px;
+}
+
+.alert.alert-thinner {
+    padding:9px 30px 9px 15px;
+    border:none;
+    ul,
+    li {
+        padding:0;
+        margin:0;
+        list-style:none;
+    }
+}

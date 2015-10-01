@@ -6,8 +6,8 @@ module.exports = function(grunt) {
 
 		uglify: {
 			ni: {
-				src: 'resources/js/ni.js',
-				dest: 'public/assets/js/ni.min.js'
+				src: 'frontend/resources/js/ni.js',
+				dest: 'frontend/public/assets/js/ni.min.js'
 			}
 		},
 
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'public/assets/css/ni.min.css': 'resources/sass/ni.scss'
+					'frontend/public/assets/css/ni.min.css': 'frontend/resources/sass/ni.scss'
 				}
 			}
 		},
@@ -27,14 +27,14 @@ module.exports = function(grunt) {
 				livereload: true,
 			},
 			scripts: {
-				files: ['resources/js/**/*.js', '!resources/js/build/**/*.js'],
+				files: ['frontend/resources/js/**/*.js', '!frontend/resources/js/build/**/*.js'],
 				tasks: ['uglify'],
 				options: {
 					spawn: false,
 				},
 			},
 			css: {
-				files: ['resources/sass/**/*.scss'],
+				files: ['frontend/resources/sass/**/*.scss'],
 				tasks: ['sass'],
 				options: {
 					spawn: false,
