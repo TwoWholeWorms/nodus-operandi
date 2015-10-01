@@ -31,7 +31,7 @@ cd /var/www/zf
 curl -Ss https://getcomposer.org/installer | php
 php composer.phar install --no-progress
 php vendor/bin/doctrine-module orm:schema-tool:create
-php vendor/bin/doctrine-module data-fixtures:import
+php vendor/bin/doctrine-module data-fixture:import
 echo "** [ZEND] Visit http://localhost:8085 in your browser for to view the application **"
 SCRIPT
 
