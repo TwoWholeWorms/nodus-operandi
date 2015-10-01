@@ -1,0 +1,16 @@
+{
+    "name": "twowholeworms/nodus-operandi",
+    "description": "nodusOperandi front-end web interface",
+    "license": "MIT",
+    "keywords": [
+        "vinari",
+        "nodus-operandi"
+    ],
+    "homepage": "http://github.com/twowholeworms/nodus-operandi",
+    "require": {
+        "php": ">=5.5"
+    },
+    "require-dev": {
+        "twowholeworms/vinari-core": "dev-master"
+    }
+}
