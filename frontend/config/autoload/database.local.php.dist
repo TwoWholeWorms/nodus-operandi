@@ -1,0 +1,43 @@
+<?php
+
+use Zend\Db\Adapter\Adapter;
+
+$dbParams = [
+    'dbname' => 'nodus_operandi',
+    'user' => 'nodus_operandi',
+    'password' => 'P4ssw0rd1',
+    'host' => '127.0.0.1',
+    'port' => 3306,
+    'charset' => 'utf8',
+];
+
+return [
+    'service_manager' => [
+        'factories' => [
+            'Zend\Db\Adapter\Adapter' => function ($sm) use ($dbParams) {
+                $adapter = new Adapter([
+                    'driver' => 'pdo',
+                    'dsn' => "mysql:dbname={$dbParams['dbname']};host={$dbParams['host']};port={$dbParams['port']};charset={$dbParams['charset']}",
+                    'database' => $dbParams['dbname'],
+                    'username' => $dbParams['user'],
+                    'password' => $dbParams['password'],
+                    'hostname' => $dbParams['host'],
+                    'port' => $dbParams['port'],
+                ]);
+
+                return $adapter;
+            },
+        ],
+    ],
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'doctrine_type_mappings' => [
+                    'enum' => 'string',
+                ],
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => $dbParams,
+            ],
+        ],
+    ],
+];

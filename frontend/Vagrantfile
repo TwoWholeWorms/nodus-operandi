@@ -6,7 +6,11 @@ VAGRANTFILE_API_VERSION = '2'
 @script = <<SCRIPT
 DOCUMENT_ROOT_ZEND="/var/www/zf/public"
 apt-get update
-apt-get install -y apache2 git curl php5-cli php5 php5-intl libapache2-mod-php5 php5-curl
+echo mysql-server mysql-server/root_password password P4ssw0rd1 | debconf-set-selections
+echo mysql-server mysql-server/root_password_again password P4ssw0rd1 | debconf-set-selections
+apt-get install -y apache2 git curl php5-cli php5 php5-intl libapache2-mod-php5 php5-curl mysql-server-5.6 php5-mysqlnd
+echo "CREATE DATABASE nodus_operandi;" | mysql -uroot -pP4ssw0rd1
+echo "GRANT ALL PRIVILEGES ON nodus_operandi.* TO 'nodus_operandi'@'127.0.0.1' IDENTIFIED BY 'P4ssw0rd1';" | mysql -uroot -pP4ssw0rd1
 echo "
 <VirtualHost *:80>
     ServerName skeleton-zf.local
@@ -26,6 +30,8 @@ service apache2 restart
 cd /var/www/zf
 curl -Ss https://getcomposer.org/installer | php
 php composer.phar install --no-progress
+php vendor/bin/doctrine-module orm:schema-tool:create
+php vendor/bin/doctrine-module data-fixtures:import
 echo "** [ZEND] Visit http://localhost:8085 in your browser for to view the application **"
 SCRIPT
 

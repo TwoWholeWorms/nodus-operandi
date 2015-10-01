@@ -66,4 +66,20 @@ return [
             ],
         ],
     ],
+    'doctrine' => [
+        'driver' => [
+            'ni_entities' => [
+                'class' => 'Doctrine\\ORM\\Mapping\\Driver\\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => [
+                    __DIR__ . '/../src/NodusOperandi/Entity',
+                ],
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    'Deirdre\\Entity' => 'ni_entities',
+                ],
+            ],
+        ],
+    ],
 ];
