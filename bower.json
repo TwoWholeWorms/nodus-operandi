@@ -1,0 +1,23 @@
+{
+  "name": "NodusOperandi",
+  "version": "0.1.0",
+  "homepage": "https://github.com/TwoWholeWorms/nodus-operandi",
+  "authors": [
+    "Benjamin Nolan <benjamin.nolan@vinari.co.uk>"
+  ],
+  "description": "NodusOperandi dependencies",
+  "moduleType": [
+    "node"
+  ],
+  "license": "All Rights Reserved",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.5"
+  }
+}
