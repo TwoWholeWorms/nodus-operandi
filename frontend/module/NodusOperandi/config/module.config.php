@@ -23,6 +23,66 @@ return [
                     ],
                 ],
             ],
+            'devices' => [
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => [
+                    'route'    => '/devices',
+                    'defaults' => [
+                        'controller' => 'NodusOperandi\\Controller\\Devices',
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'clients' => [
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => [
+                    'route'    => '/clients',
+                    'defaults' => [
+                        'controller' => 'NodusOperandi\\Controller\\Clients',
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'alerts' => [
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => [
+                    'route'    => '/alerts',
+                    'defaults' => [
+                        'controller' => 'NodusOperandi\\Controller\\Alerts',
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'events' => [
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => [
+                    'route'    => '/events',
+                    'defaults' => [
+                        'controller' => 'NodusOperandi\\Controller\\Events',
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'settings' => [
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => [
+                    'route'    => '/settings',
+                    'defaults' => [
+                        'controller' => 'NodusOperandi\\Controller\\Settings',
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
+            'statistics' => [
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => [
+                    'route'    => '/statistics',
+                    'defaults' => [
+                        'controller' => 'NodusOperandi\\Controller\\Statistics',
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'service_manager' => [
@@ -46,7 +106,13 @@ return [
     ],
     'controllers' => [
         'invokables' => [
-            'NodusOperandi\\Controller\\Index' => Controller\IndexController::class
+            'NodusOperandi\\Controller\\Alerts'     => Controller\AlertsController::class,
+            'NodusOperandi\\Controller\\Clients'    => Controller\ClientsController::class,
+            'NodusOperandi\\Controller\\Devices'    => Controller\DevicesController::class,
+            'NodusOperandi\\Controller\\Events'     => Controller\EventsController::class,
+            'NodusOperandi\\Controller\\Index'      => Controller\IndexController::class,
+            'NodusOperandi\\Controller\\Settings'   => Controller\SettingsController::class,
+            'NodusOperandi\\Controller\\Statistics' => Controller\StatisticsController::class,
         ],
     ],
     'view_manager' => [

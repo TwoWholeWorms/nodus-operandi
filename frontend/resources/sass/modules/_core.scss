@@ -94,6 +94,9 @@ h1 {
 .padding {
     padding:10px 15px;
 }
+.margin {
+    margin:16px 0;
+}
 
 .alert.alert-thinner {
     padding:9px 30px 9px 15px;
@@ -103,5 +106,42 @@ h1 {
         padding:0;
         margin:0;
         list-style:none;
+    }
+}
+
+.status.off,
+.status.disabled {
+    color:#c00;
+    font-weight:900;
+}
+.status.disconnected {
+    color:#777;
+    font-weight:900;
+}
+.status.on,
+.status.connected {
+    color:#0c0;
+    font-weight:900;
+}
+.status.unknown {
+    color:#ee0;
+    font-weight:900;
+}
+.status.orphaned {
+    color:#00c;
+    font-weight:900;
+}
+
+table.table > thead > tr > th,
+table.table > thead > tr > td,
+table.table > tbody > tr > th,
+table.table > tbody > tr > td,
+table.table > tfoot > tr > th,
+table.table > tfoot > tr > td {
+    vertical-align:middle;
+    padding:4px 8px;
+    &.actions > button.btn {
+        display:inline-block;
+        vertical-align:middle;
     }
 }

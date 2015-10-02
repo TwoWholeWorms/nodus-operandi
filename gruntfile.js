@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
 		uglify: {
 			ni: {
-				src: 'frontend/resources/js/ni.js',
+				src: ['frontend/resources/js/includes/bootstrap-switch.min.js', 'frontend/resources/js/ni.js'],
 				dest: 'frontend/public/assets/js/ni.min.js'
 			}
 		},
