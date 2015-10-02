@@ -19,6 +19,13 @@ return array(
         'ZfcUserDoctrineORM',
         'BjyAuthorize',
 
+        'FlashMessenger',
+        'GoalioMailService',
+        // 'GoalioRememberMe',
+        // 'GoalioRememberMeDoctrineORM',
+        'GoalioForgotPassword',
+        'GoalioForgotPasswordDoctrineORM',
+
         'VinariCore',
         'NodusOperandi',
     ),

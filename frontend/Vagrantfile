@@ -20,6 +20,7 @@ echo "
         AllowOverride All
         Order allow,deny
         Allow from all
+        SetEnv APPLICATION_ENV development
     </Directory>
 </VirtualHost>
 " > /etc/apache2/sites-available/skeleton-zf.conf

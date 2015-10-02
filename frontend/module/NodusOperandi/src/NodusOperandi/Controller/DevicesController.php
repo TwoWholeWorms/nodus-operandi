@@ -11,9 +11,8 @@
 namespace NodusOperandi\Controller;
 
 use VinariCore\Mvc\Controller\AbstractActionController;
-use Zend\Crypt\Password\Bcrypt;
 
-class IndexController extends AbstractActionController
+class DevicesController extends AbstractActionController
 {
 
     public function indexAction()

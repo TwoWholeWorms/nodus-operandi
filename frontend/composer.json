@@ -8,7 +8,12 @@
     ],
     "homepage": "http://github.com/twowholeworms/nodus-operandi",
     "require": {
-        "php": ">=5.5"
+        "php": ">=5.5",
+        "zf-hipsters/bootstrap-flash-messenger": ">=1.0",
+        "goalio/goalio-rememberme": "1.*",
+        "goalio/goalio-rememberme-doctrine-orm": "1.*",
+        "goalio/goalio-forgotpassword": "1.*",
+        "goalio/goalio-forgotpassword-doctrine-orm": "1.*"
     },
     "require-dev": {
         "twowholeworms/vinari-core": "dev-master"

@@ -1,0 +1,60 @@
+{% extends 'layout/layout.twig' %}
+
+{% block content %}
+    <div class="login-wrapper">
+        {% set form = loginForm %}
+        {% if form != null %}
+            {% set t = form.prepare() %}
+        {% endif %}
+        {% set errors = '' %}
+        {% set error = formElementErrors(form.get('identity')) %}
+        {% if error %}
+            {% set errors = errors ~ '<strong>E-mail address</strong> ' ~ error %}
+        {% endif %}
+        {% set error = formElementErrors(form.get('credential')) %}
+        {% if error %}
+            {% set errors = errors ~ '<strong>Password</strong> ' ~ error %}
+        {% endif %}
+        {% if errors != '' %}
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger alert-dismissible alert-thinner" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{ errors|raw }}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-3">&#xa0;</div>
+            <div class="col-md-6">
+                <div class="panel padding">
+                    <h1>{{ translate('Sign In') }}</h1>
+                    <form class="form form-horizontal" id="login_form" action="{{ url('zfcuser/login') }}" method="post">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="identity">{{ translate('E-mail address') }}</label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control" id="identity" name="identity" placeholder="me@domain.com" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="credential">{{ translate('Password') }}</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="credential" name="credential" value="" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-3">&#xa0;</div>
+                            <div class="col-sm-9">
+                                {% if redirect %}
+                                    <input type="hidden" name="redirect" value="{{ redirect }}" />
+                                {% endif %}
+                                <button name="submit_form" type="submit" class="btn btn-primary">Log in</button> or <a href="{{ url('zfcuser/forgotpassword') }}">{{ translate("forgot your password?") }}</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

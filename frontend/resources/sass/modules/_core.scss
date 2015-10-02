@@ -2,27 +2,95 @@
  * General CSS
  */
 
-nav.left-nav {
-    width:100px;
-    position:fixed;
-    left:0;
-    top:60px;
-    bottom:0;
-    ul {
-        list-style:none;
-        padding:0;
-        margin:0;
-        li {
+body {
+    font-family: 'Lato', sans-serif;
+    font-weight:300;
+}
+
+h1 {
+    font-size:24px;
+    padding:0;
+    margin:0;
+}
+
+@media (min-width:768px) {
+    a.navbar-brand {
+        background:#e2e2e2 url('../images/icon.png') no-repeat center center;
+        display:block;
+        width:120px;
+        padding-left:56px;
+        span {
+            display:block;
+            width:1px;
+            text-indent:-30000px;
+            overflow:hidden;
+        }
+    }
+
+    nav.navbar.navbar-default {
+        border-radius:0;
+        box-shadow:none;
+        -webkit-box-shadow:none;
+        background:#e2e2e2;
+    }
+
+    nav.left-nav {
+        background:#f2f2f2;
+        box-shadow:none;
+        -webkit-box-shadow:none;
+        width:120px;
+        position:fixed;
+        left:0;
+        top:54px;
+        bottom:0;
+        ul {
+            list-style:none;
             padding:0;
             margin:0;
-            a {
-                display:block;
-                padding:10px 16px;
-                cursor:pointer;
+            li {
+                padding:0;
+                margin:0;
+                a {
+                    display:block;
+                    padding:10px 16px;
+                    cursor:pointer;
+                    white-space:nowrap;
+                    &:hover {
+                        background:#e2e2e2;
+                        text-decoration:none;
+                    }
+                    .nav-icon-container {
+                        display:inline-block;
+                        text-align:center;
+                        width:20px;
+                        span {
+                            display:inline-block;
+                        }
+                    }
+                }
             }
         }
     }
+
+    section.main-pane {
+        display:block;
+        position:fixed;
+        top:54px;
+        left:120px;
+        bottom:0;
+        right:0;
+        overflow:auto;
+        padding:16px;
+    }
+
+    div.login-wrapper {
+        margin-top:100px;
+        .panel {
+            background:#f8f8f8;
+        }
+    }
 }
+
 .padding {
     padding:10px 15px;
 }

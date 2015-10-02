@@ -4,80 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f13b5dcd2ee4e2c5a50e6abbbeb3dc60",
-    "content-hash": "225c8367e6f97fbbd3b75d1a4dd9e4c2",
-    "packages": [],
-    "packages-dev": [
-        {
-            "name": "bjyoungblood/bjy-authorize",
-            "version": "1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bjyoungblood/BjyAuthorize.git",
-                "reference": "02723bd19f0bba33649d708022f8d0e0b795f57a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bjyoungblood/BjyAuthorize/zipball/02723bd19f0bba33649d708022f8d0e0b795f57a",
-                "reference": "02723bd19f0bba33649d708022f8d0e0b795f57a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "zendframework/zend-cache": "~2.1",
-                "zendframework/zend-eventmanager": "~2.1",
-                "zendframework/zend-http": "~2.1",
-                "zendframework/zend-mvc": "~2.1",
-                "zendframework/zend-permissions-acl": "~2.1",
-                "zendframework/zend-servicemanager": "~2.1",
-                "zendframework/zend-view": "~2.1"
-            },
-            "require-dev": {
-                "doctrine/common": ">=2.3,<2.5-dev",
-                "phpunit/phpunit": "~3.7",
-                "satooshi/php-coveralls": "~0.6",
-                "squizlabs/php_codesniffer": "1.4.*",
-                "zendframework/zend-developer-tools": "0.*",
-                "zf-commons/zfc-user": "0.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "BjyAuthorize\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Ben Youngblood",
-                    "email": "bx.youngblood@gmail.com",
-                    "homepage": "http://bjyoungblood.com/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Zend\\Acl based firewall system for ZF2 dispatch protection",
-            "homepage": "https://github.com/bjyoungblood/BjyAuthorize",
-            "keywords": [
-                "acl",
-                "zf2",
-                "zfc-user"
-            ],
-            "time": "2013-07-05 11:59:46"
-        },
+    "hash": "0dd44e7f82c91537457ba40bac648f10",
+    "content-hash": "344d220804cb55a084aa54f42b676235",
+    "packages": [
         {
             "name": "doctrine/annotations",
             "version": "v1.2.7",
@@ -354,60 +283,6 @@
                 "spl"
             ],
             "time": "2015-08-31 13:00:22"
-        },
-        {
-            "name": "doctrine/data-fixtures",
-            "version": "v1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "422952ccf7151c02bb5c01fadb305dce266a3b5f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/422952ccf7151c02bb5c01fadb305dce266a3b5f",
-                "reference": "422952ccf7151c02bb5c01fadb305dce266a3b5f",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/common": "~2.2",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "doctrine/orm": "~2.2"
-            },
-            "suggest": {
-                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
-                "doctrine/orm": "For loading ORM fixtures",
-                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\DataFixtures": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                }
-            ],
-            "description": "Data Fixtures for all Doctrine Object Managers",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database"
-            ],
-            "time": "2015-03-27 21:01:43"
         },
         {
             "name": "doctrine/dbal",
@@ -889,170 +764,226 @@
             "time": "2015-08-31 12:59:39"
         },
         {
-            "name": "hounddog/doctrine-data-fixture-module",
-            "version": "0.0.4",
+            "name": "goalio/goalio-forgotpassword",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Hounddog/DoctrineDataFixtureModule.git",
-                "reference": "4f09fd948dfaf5003acccba4533d52291cd76d2b"
+                "url": "https://github.com/goalio/GoalioForgotPassword.git",
+                "reference": "2b463a6df01a2fbecccd3467f080d02d5f500c02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hounddog/DoctrineDataFixtureModule/zipball/4f09fd948dfaf5003acccba4533d52291cd76d2b",
-                "reference": "4f09fd948dfaf5003acccba4533d52291cd76d2b",
+                "url": "https://api.github.com/repos/goalio/GoalioForgotPassword/zipball/2b463a6df01a2fbecccd3467f080d02d5f500c02",
+                "reference": "2b463a6df01a2fbecccd3467f080d02d5f500c02",
                 "shasum": ""
             },
             "require": {
-                "doctrine/data-fixtures": "1.0.*",
-                "doctrine/doctrine-orm-module": "~0.7",
-                "php": ">=5.3.3",
-                "zendframework/zend-eventmanager": "2.*",
-                "zendframework/zend-modulemanager": "2.*",
-                "zendframework/zend-servicemanager": "2.*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "satooshi/php-coveralls": ">=0.6.0",
-                "squizlabs/php_codesniffer": "1.4.*"
+                "goalio/goalio-mailservice": "1.*",
+                "zf-commons/zfc-user": "1.*"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "DoctrineDataFixtureModule": "src/"
-                }
+                    "GoalioForgotPassword": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
-                    "name": "Martin Shwalbe",
-                    "email": "martin.shwalbe@gmail.com",
-                    "homepage": "http://hounddog.github.com"
+                    "name": "Philipp Dobrigkeit",
+                    "email": "p.dobrigkeit@goalio.de",
+                    "homepage": "http://www.goalio.de"
                 }
             ],
-            "description": "Zend Framework 2 Module that provides Doctrine Data-Fixture functionality",
-            "homepage": "http://www.doctrine-project.org/",
+            "description": "Adding Forgot Password functionalitiy to ZfcUser",
+            "homepage": "https://github.com/goalio/GoalioForgotPassword",
             "keywords": [
-                "data-fixture",
-                "doctrine",
-                "module",
+                "zf2",
+                "zfcuser"
+            ],
+            "time": "2014-05-26 07:07:29"
+        },
+        {
+            "name": "goalio/goalio-forgotpassword-doctrine-orm",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/goalio/GoalioForgotPasswordDoctrineORM.git",
+                "reference": "8894334eacb279ac5dcb6dc4fef97c39658ff259"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/goalio/GoalioForgotPasswordDoctrineORM/zipball/8894334eacb279ac5dcb6dc4fef97c39658ff259",
+                "reference": "8894334eacb279ac5dcb6dc4fef97c39658ff259",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-orm-module": "0.*",
+                "goalio/goalio-forgotpassword": "1.*",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "GoalioForgotPasswordDoctrineORM": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Philipp Dobrigkeit",
+                    "email": "p.dobrigkeit@goalio.de",
+                    "homepage": "http://www.goalio.de"
+                }
+            ],
+            "description": "Doctrine2 ORM storage adapter for GoalioForgotPassword.",
+            "homepage": "https://github.com/goalio/GoalioForgotPasswordDoctrineORM",
+            "keywords": [
                 "zf2"
             ],
-            "time": "2013-12-12 15:42:53"
+            "time": "2014-07-07 12:50:56"
         },
         {
-            "name": "monolog/monolog",
-            "version": "1.5.0",
+            "name": "goalio/goalio-mailservice",
+            "version": "1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "583618d5cd2115a52101694aca87afb182b3e567"
+                "url": "https://github.com/goalio/GoalioMailService.git",
+                "reference": "16732ecdd2e43acc418e0541e2606c6abc2140db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/583618d5cd2115a52101694aca87afb182b3e567",
-                "reference": "583618d5cd2115a52101694aca87afb182b3e567",
+                "url": "https://api.github.com/repos/goalio/GoalioMailService/zipball/16732ecdd2e43acc418e0541e2606c6abc2140db",
+                "reference": "16732ecdd2e43acc418e0541e2606c6abc2140db",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "doctrine/couchdb": "dev-master",
-                "mlehner/gelf-php": "1.0.*",
-                "raven/raven": "0.3.*"
-            },
-            "suggest": {
-                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
-                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server",
-                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "raven/raven": "Allow sending log messages to a Sentry server"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Monolog": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jordi Boggiano",
-                    "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "http://github.com/Seldaek/monolog",
-            "keywords": [
-                "log",
-                "logging",
-                "psr-3"
-            ],
-            "time": "2013-04-23 10:09:48"
-        },
-        {
-            "name": "nategood/httpful",
-            "version": "0.2.19",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nategood/httpful.git",
-                "reference": "bd73f89d34d8f879c54ac46eb94b0f7be1d00820"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nategood/httpful/zipball/bd73f89d34d8f879c54ac46eb94b0f7be1d00820",
-                "reference": "bd73f89d34d8f879c54ac46eb94b0f7be1d00820",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "*"
+                "php": ">=5.3.3",
+                "zendframework/zendframework": "2.*"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Httpful": "src/"
-                }
+                    "GoalioMailService": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
-                    "name": "Nate Good",
-                    "email": "me@nategood.com",
-                    "homepage": "http://nategood.com"
+                    "name": "Philipp Dobrigkeit",
+                    "email": "p.dobrigkeit@goalio.de",
+                    "homepage": "http://www.goalio.de"
                 }
             ],
-            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
-            "homepage": "http://github.com/nategood/httpful",
+            "description": "Provide configurable Mail Transport Factories for ZF2",
+            "homepage": "https://github.com/goalio/GoalioMailService",
             "keywords": [
-                "api",
-                "curl",
-                "http",
-                "requests",
-                "rest",
-                "restful"
+                "zf2"
             ],
-            "time": "2015-03-08 15:22:23"
+            "time": "2014-09-18 08:30:20"
+        },
+        {
+            "name": "goalio/goalio-rememberme",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/goalio/GoalioRememberMe.git",
+                "reference": "22ec937e8915aaaeae7c27ef28b1ca40b2c7b5dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/goalio/GoalioRememberMe/zipball/22ec937e8915aaaeae7c27ef28b1ca40b2c7b5dd",
+                "reference": "22ec937e8915aaaeae7c27ef28b1ca40b2c7b5dd",
+                "shasum": ""
+            },
+            "require": {
+                "zf-commons/zfc-user": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "GoalioRememberMe": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Philipp Dobrigkeit",
+                    "email": "p.dobrigkeit@goalio.de",
+                    "homepage": "http://www.goalio.de"
+                }
+            ],
+            "description": "Adding Remember Me functionalitiy to ZfcUser",
+            "homepage": "https://github.com/goalio/GoalioRememberMe",
+            "keywords": [
+                "zf2",
+                "zfcuser"
+            ],
+            "time": "2014-05-26 07:08:42"
+        },
+        {
+            "name": "goalio/goalio-rememberme-doctrine-orm",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/goalio/GoalioRememberMeDoctrineORM.git",
+                "reference": "5035d32c7c282651609ff3ded51bd96d310b6776"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/goalio/GoalioRememberMeDoctrineORM/zipball/5035d32c7c282651609ff3ded51bd96d310b6776",
+                "reference": "5035d32c7c282651609ff3ded51bd96d310b6776",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-orm-module": "0.*",
+                "goalio/goalio-rememberme": "1.*",
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "GoalioRememberMeDoctrineORM": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Philipp Dobrigkeit",
+                    "email": "p.dobrigkeit@goalio.de",
+                    "homepage": "http://www.goalio.de"
+                }
+            ],
+            "description": "Doctrine2 ORM storage adapter for GoalioRememberMe.",
+            "homepage": "https://github.com/goalio/GoalioRememberMeDoctrineORM",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2014-06-02 09:13:32"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1405,16 +1336,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.9",
+            "version": "4.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "73fad41adb5b7bc3a494bb930d90648df1d5e74b"
+                "reference": "463163747474815c5ccd4ae12b5b355ec12158e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/73fad41adb5b7bc3a494bb930d90648df1d5e74b",
-                "reference": "73fad41adb5b7bc3a494bb930d90648df1d5e74b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/463163747474815c5ccd4ae12b5b355ec12158e8",
+                "reference": "463163747474815c5ccd4ae12b5b355ec12158e8",
                 "shasum": ""
             },
             "require": {
@@ -1473,7 +1404,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-09-20 12:56:44"
+            "time": "2015-10-01 09:14:30"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1530,44 +1461,6 @@
                 "xunit"
             ],
             "time": "2015-08-19 09:14:08"
-        },
-        {
-            "name": "psr/log",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/log.git",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Psr\\Log\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for logging libraries",
-            "keywords": [
-                "log",
-                "psr",
-                "psr-3"
-            ],
-            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "sebastian/comparator",
@@ -2045,172 +1938,6 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2015-09-14 14:14:09"
-        },
-        {
-            "name": "twig/twig",
-            "version": "v1.22.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
-                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.7"
-            },
-            "require-dev": {
-                "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~2.7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.22-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Twig_": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com",
-                    "role": "Project Founder"
-                },
-                {
-                    "name": "Twig Team",
-                    "homepage": "http://twig.sensiolabs.org/contributors",
-                    "role": "Contributors"
-                }
-            ],
-            "description": "Twig, the flexible, fast, and secure template language for PHP",
-            "homepage": "http://twig.sensiolabs.org",
-            "keywords": [
-                "templating"
-            ],
-            "time": "2015-09-22 13:59:32"
-        },
-        {
-            "name": "twowholeworms/vinari-core",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/TwoWholeWorms/VinariCore.git",
-                "reference": "a7d141dc6cad9551e9c5c7a14bd2569c10265a7c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/TwoWholeWorms/VinariCore/zipball/a7d141dc6cad9551e9c5c7a14bd2569c10265a7c",
-                "reference": "a7d141dc6cad9551e9c5c7a14bd2569c10265a7c",
-                "shasum": ""
-            },
-            "require": {
-                "bjyoungblood/bjy-authorize": "*",
-                "doctrine/doctrine-module": "*",
-                "doctrine/doctrine-orm-module": "*",
-                "hounddog/doctrine-data-fixture-module": "*",
-                "php": ">=5.4.0",
-                "urbanairship/urbanairship": ">=0.1.3",
-                "zendframework/zendframework": "~2.5",
-                "zf-commons/zfc-admin": "*",
-                "zf-commons/zfc-base": "*",
-                "zf-commons/zfc-twig": "*",
-                "zf-commons/zfc-user": "*",
-                "zf-commons/zfc-user-doctrine-orm": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "VinariCore": "src/"
-                },
-                "classmap": [
-                    "./Module.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Nolan",
-                    "email": "benjamin.nolan@vinari.co.uk",
-                    "homepage": "https://ben.mu/"
-                }
-            ],
-            "description": "Collection of shared code, models, and stuff used across a bunch of my projects",
-            "homepage": "https://github.com/TwoWholeWorms/VinariCore",
-            "keywords": [
-                "vinari",
-                "vinari-core",
-                "zf2"
-            ],
-            "time": "2015-09-14 01:48:41"
-        },
-        {
-            "name": "urbanairship/urbanairship",
-            "version": "0.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/urbanairship/php-library2.git",
-                "reference": "7c5ce061c10d528d90a70e843b34ce99cd04a98a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/urbanairship/php-library2/zipball/7c5ce061c10d528d90a70e843b34ce99cd04a98a",
-                "reference": "7c5ce061c10d528d90a70e843b34ce99cd04a98a",
-                "shasum": ""
-            },
-            "require": {
-                "monolog/monolog": "1.5.0",
-                "nategood/httpful": "*"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "UrbanAirship": "src/"
-                },
-                "files": [
-                    "src/UrbanAirship/Push/Audience.php",
-                    "src/UrbanAirship/Push/Notification.php",
-                    "src/UrbanAirship/Push/Schedule.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache"
-            ],
-            "authors": [
-                {
-                    "name": "Urban Airship",
-                    "email": "support@urbanairship.com",
-                    "homepage": "http://support.urbanairship.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Urban Airship PHP Library",
-            "homepage": "http://docs.urbanairship.com/reference/libraries/php/",
-            "time": "2013-09-24 17:12:56"
         },
         {
             "name": "zendframework/zend-authentication",
@@ -5096,62 +4823,6 @@
             "time": "2015-08-03 14:50:10"
         },
         {
-            "name": "zf-commons/zfc-admin",
-            "version": "v0.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ZF-Commons/ZfcAdmin.git",
-                "reference": "86794b7c3162516586c2e3e0d5814887bec58e95"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ZF-Commons/ZfcAdmin/zipball/86794b7c3162516586c2e3e0d5814887bec58e95",
-                "reference": "86794b7c3162516586c2e3e0d5814887bec58e95",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "zendframework/zend-eventmanager": "2.*",
-                "zendframework/zend-loader": "2.*",
-                "zendframework/zend-modulemanager": "2.*",
-                "zendframework/zend-mvc": "2.*",
-                "zendframework/zend-navigation": "2.*"
-            },
-            "suggest": {
-                "bjyoungblood/bjy-authorize": "Access control to protect ZfcAdmin against unauthorized users"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ZfcAdmin": "src/"
-                },
-                "classmap": [
-                    "./Module.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Martin Shwalbe",
-                    "email": "martin.shwalbe@gmail.com"
-                },
-                {
-                    "name": "Jurian Sluiman",
-                    "email": "jurian@juriansluiman.nl",
-                    "homepage": "http://juriansluiman.nl/en/"
-                }
-            ],
-            "description": "A generic Admin module for ZF2.",
-            "homepage": "https://github.com/juriansluiman/ZfcAdmin",
-            "keywords": [
-                "zf2"
-            ],
-            "time": "2014-10-22 07:57:03"
-        },
-        {
             "name": "zf-commons/zfc-base",
             "version": "v0.1.2",
             "source": {
@@ -5203,55 +4874,6 @@
                 "zf2"
             ],
             "time": "2013-05-02 12:33:49"
-        },
-        {
-            "name": "zf-commons/zfc-twig",
-            "version": "1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ZF-Commons/ZfcTwig.git",
-                "reference": "0235932354b9c25b1a492e8921d3b2bfedcdba42"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ZF-Commons/ZfcTwig/zipball/0235932354b9c25b1a492e8921d3b2bfedcdba42",
-                "reference": "0235932354b9c25b1a492e8921d3b2bfedcdba42",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3",
-                "twig/twig": "~1.13"
-            },
-            "require-dev": {
-                "zendframework/zend-view": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "ZfcTwig\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Kyle Spraggs",
-                    "email": "theman@spiffyjr.me",
-                    "homepage": "http://www.spiffyjr.me/"
-                },
-                {
-                    "name": "Cosmin Harangus",
-                    "email": "cosmin@zendexperts.com",
-                    "homepage": "http://www.zendexperts.com/"
-                }
-            ],
-            "description": "Zend Framework 2 Module that provides a Twig rendering strategy and extensions to render actions or trigger events from your templates",
-            "homepage": "http://www.github.com/ZF-Commons/ZfcTwig/",
-            "keywords": [
-                "module",
-                "twig",
-                "zf2"
-            ],
-            "time": "2014-04-29 17:40:31"
         },
         {
             "name": "zf-commons/zfc-user",
@@ -5329,6 +4951,649 @@
                 "zf2"
             ],
             "time": "2015-08-17 11:49:46"
+        },
+        {
+            "name": "zf-hipsters/bootstrap-flash-messenger",
+            "version": "1.02",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zf-hipsters/bootstrap-flash-messenger.git",
+                "reference": "d895eb52962981741ae0b23acbd363e6f4992679"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zf-hipsters/bootstrap-flash-messenger/zipball/d895eb52962981741ae0b23acbd363e6f4992679",
+                "reference": "d895eb52962981741ae0b23acbd363e6f4992679",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zendframework": ">2.2.0rc1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FlashMessenger": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Aaron Weatherall",
+                    "email": "aaron@weatherall.net.au",
+                    "homepage": "http://www.aaronweatherall.com"
+                }
+            ],
+            "description": "Simple implementation of ZF2 flash messengers using bootstrap. Contains easy helpers that will save you a LOT of time.",
+            "homepage": "https://github.com/zf-hipsters/bootstrap-flash-messenger",
+            "keywords": [
+                "zf2 flash bootstrap flashmessenger"
+            ],
+            "time": "2013-11-10 09:23:57"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "bjyoungblood/bjy-authorize",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bjyoungblood/BjyAuthorize.git",
+                "reference": "02723bd19f0bba33649d708022f8d0e0b795f57a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bjyoungblood/BjyAuthorize/zipball/02723bd19f0bba33649d708022f8d0e0b795f57a",
+                "reference": "02723bd19f0bba33649d708022f8d0e0b795f57a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-cache": "~2.1",
+                "zendframework/zend-eventmanager": "~2.1",
+                "zendframework/zend-http": "~2.1",
+                "zendframework/zend-mvc": "~2.1",
+                "zendframework/zend-permissions-acl": "~2.1",
+                "zendframework/zend-servicemanager": "~2.1",
+                "zendframework/zend-view": "~2.1"
+            },
+            "require-dev": {
+                "doctrine/common": ">=2.3,<2.5-dev",
+                "phpunit/phpunit": "~3.7",
+                "satooshi/php-coveralls": "~0.6",
+                "squizlabs/php_codesniffer": "1.4.*",
+                "zendframework/zend-developer-tools": "0.*",
+                "zf-commons/zfc-user": "0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "BjyAuthorize\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Ben Youngblood",
+                    "email": "bx.youngblood@gmail.com",
+                    "homepage": "http://bjyoungblood.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Zend\\Acl based firewall system for ZF2 dispatch protection",
+            "homepage": "https://github.com/bjyoungblood/BjyAuthorize",
+            "keywords": [
+                "acl",
+                "zf2",
+                "zfc-user"
+            ],
+            "time": "2013-07-05 11:59:46"
+        },
+        {
+            "name": "doctrine/data-fixtures",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/data-fixtures.git",
+                "reference": "422952ccf7151c02bb5c01fadb305dce266a3b5f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/422952ccf7151c02bb5c01fadb305dce266a3b5f",
+                "reference": "422952ccf7151c02bb5c01fadb305dce266a3b5f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.2",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.2"
+            },
+            "suggest": {
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\DataFixtures": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com"
+                }
+            ],
+            "description": "Data Fixtures for all Doctrine Object Managers",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database"
+            ],
+            "time": "2015-03-27 21:01:43"
+        },
+        {
+            "name": "hounddog/doctrine-data-fixture-module",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Hounddog/DoctrineDataFixtureModule.git",
+                "reference": "4f09fd948dfaf5003acccba4533d52291cd76d2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Hounddog/DoctrineDataFixtureModule/zipball/4f09fd948dfaf5003acccba4533d52291cd76d2b",
+                "reference": "4f09fd948dfaf5003acccba4533d52291cd76d2b",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "1.0.*",
+                "doctrine/doctrine-orm-module": "~0.7",
+                "php": ">=5.3.3",
+                "zendframework/zend-eventmanager": "2.*",
+                "zendframework/zend-modulemanager": "2.*",
+                "zendframework/zend-servicemanager": "2.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": ">=0.6.0",
+                "squizlabs/php_codesniffer": "1.4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "DoctrineDataFixtureModule": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Shwalbe",
+                    "email": "martin.shwalbe@gmail.com",
+                    "homepage": "http://hounddog.github.com"
+                }
+            ],
+            "description": "Zend Framework 2 Module that provides Doctrine Data-Fixture functionality",
+            "homepage": "http://www.doctrine-project.org/",
+            "keywords": [
+                "data-fixture",
+                "doctrine",
+                "module",
+                "zf2"
+            ],
+            "time": "2013-12-12 15:42:53"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "583618d5cd2115a52101694aca87afb182b3e567"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/583618d5cd2115a52101694aca87afb182b3e567",
+                "reference": "583618d5cd2115a52101694aca87afb182b3e567",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0"
+            },
+            "require-dev": {
+                "doctrine/couchdb": "dev-master",
+                "mlehner/gelf-php": "1.0.*",
+                "raven/raven": "0.3.*"
+            },
+            "suggest": {
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "raven/raven": "Allow sending log messages to a Sentry server"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Monolog": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "http://seld.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "http://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "time": "2013-04-23 10:09:48"
+        },
+        {
+            "name": "nategood/httpful",
+            "version": "0.2.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nategood/httpful.git",
+                "reference": "bd73f89d34d8f879c54ac46eb94b0f7be1d00820"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nategood/httpful/zipball/bd73f89d34d8f879c54ac46eb94b0f7be1d00820",
+                "reference": "bd73f89d34d8f879c54ac46eb94b0f7be1d00820",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Httpful": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nate Good",
+                    "email": "me@nategood.com",
+                    "homepage": "http://nategood.com"
+                }
+            ],
+            "description": "A Readable, Chainable, REST friendly, PHP HTTP Client",
+            "homepage": "http://github.com/nategood/httpful",
+            "keywords": [
+                "api",
+                "curl",
+                "http",
+                "requests",
+                "rest",
+                "restful"
+            ],
+            "time": "2015-03-08 15:22:23"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.22.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
+                "reference": "79249fc8c9ff62e41e217e0c630e2e00bcadda6a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.7"
+            },
+            "require-dev": {
+                "symfony/debug": "~2.7",
+                "symfony/phpunit-bridge": "~2.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.22-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "http://twig.sensiolabs.org",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2015-09-22 13:59:32"
+        },
+        {
+            "name": "twowholeworms/vinari-core",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TwoWholeWorms/VinariCore.git",
+                "reference": "e3411824f6641ccd5a8026b55bd82123b42edcdd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TwoWholeWorms/VinariCore/zipball/e3411824f6641ccd5a8026b55bd82123b42edcdd",
+                "reference": "e3411824f6641ccd5a8026b55bd82123b42edcdd",
+                "shasum": ""
+            },
+            "require": {
+                "bjyoungblood/bjy-authorize": "*",
+                "doctrine/doctrine-module": "*",
+                "doctrine/doctrine-orm-module": "*",
+                "hounddog/doctrine-data-fixture-module": "*",
+                "php": ">=5.4.0",
+                "urbanairship/urbanairship": ">=0.1.3",
+                "zendframework/zendframework": "~2.5",
+                "zf-commons/zfc-admin": "*",
+                "zf-commons/zfc-base": "*",
+                "zf-commons/zfc-twig": "*",
+                "zf-commons/zfc-user": "*",
+                "zf-commons/zfc-user-doctrine-orm": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "VinariCore": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Nolan",
+                    "email": "benjamin.nolan@vinari.co.uk",
+                    "homepage": "https://ben.mu/"
+                }
+            ],
+            "description": "Collection of shared code, models, and stuff used across a bunch of my projects",
+            "homepage": "https://github.com/TwoWholeWorms/VinariCore",
+            "keywords": [
+                "vinari",
+                "vinari-core",
+                "zf2"
+            ],
+            "time": "2015-10-01 09:33:53"
+        },
+        {
+            "name": "urbanairship/urbanairship",
+            "version": "0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/urbanairship/php-library2.git",
+                "reference": "7c5ce061c10d528d90a70e843b34ce99cd04a98a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/urbanairship/php-library2/zipball/7c5ce061c10d528d90a70e843b34ce99cd04a98a",
+                "reference": "7c5ce061c10d528d90a70e843b34ce99cd04a98a",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "1.5.0",
+                "nategood/httpful": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "UrbanAirship": "src/"
+                },
+                "files": [
+                    "src/UrbanAirship/Push/Audience.php",
+                    "src/UrbanAirship/Push/Notification.php",
+                    "src/UrbanAirship/Push/Schedule.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache"
+            ],
+            "authors": [
+                {
+                    "name": "Urban Airship",
+                    "email": "support@urbanairship.com",
+                    "homepage": "http://support.urbanairship.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Urban Airship PHP Library",
+            "homepage": "http://docs.urbanairship.com/reference/libraries/php/",
+            "time": "2013-09-24 17:12:56"
+        },
+        {
+            "name": "zf-commons/zfc-admin",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcAdmin.git",
+                "reference": "86794b7c3162516586c2e3e0d5814887bec58e95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcAdmin/zipball/86794b7c3162516586c2e3e0d5814887bec58e95",
+                "reference": "86794b7c3162516586c2e3e0d5814887bec58e95",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-eventmanager": "2.*",
+                "zendframework/zend-loader": "2.*",
+                "zendframework/zend-modulemanager": "2.*",
+                "zendframework/zend-mvc": "2.*",
+                "zendframework/zend-navigation": "2.*"
+            },
+            "suggest": {
+                "bjyoungblood/bjy-authorize": "Access control to protect ZfcAdmin against unauthorized users"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZfcAdmin": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Shwalbe",
+                    "email": "martin.shwalbe@gmail.com"
+                },
+                {
+                    "name": "Jurian Sluiman",
+                    "email": "jurian@juriansluiman.nl",
+                    "homepage": "http://juriansluiman.nl/en/"
+                }
+            ],
+            "description": "A generic Admin module for ZF2.",
+            "homepage": "https://github.com/juriansluiman/ZfcAdmin",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2014-10-22 07:57:03"
+        },
+        {
+            "name": "zf-commons/zfc-twig",
+            "version": "1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcTwig.git",
+                "reference": "0235932354b9c25b1a492e8921d3b2bfedcdba42"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcTwig/zipball/0235932354b9c25b1a492e8921d3b2bfedcdba42",
+                "reference": "0235932354b9c25b1a492e8921d3b2bfedcdba42",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "twig/twig": "~1.13"
+            },
+            "require-dev": {
+                "zendframework/zend-view": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZfcTwig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                },
+                {
+                    "name": "Cosmin Harangus",
+                    "email": "cosmin@zendexperts.com",
+                    "homepage": "http://www.zendexperts.com/"
+                }
+            ],
+            "description": "Zend Framework 2 Module that provides a Twig rendering strategy and extensions to render actions or trigger events from your templates",
+            "homepage": "http://www.github.com/ZF-Commons/ZfcTwig/",
+            "keywords": [
+                "module",
+                "twig",
+                "zf2"
+            ],
+            "time": "2014-04-29 17:40:31"
         },
         {
             "name": "zf-commons/zfc-user-doctrine-orm",

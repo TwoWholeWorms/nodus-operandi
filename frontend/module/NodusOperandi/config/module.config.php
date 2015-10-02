@@ -77,9 +77,12 @@ return [
             ],
             'orm_default' => [
                 'drivers' => [
-                    'Deirdre\\Entity' => 'ni_entities',
+                    'NodusOperandi\\Entity' => 'ni_entities',
                 ],
             ],
         ],
+    ],
+    'data-fixture' => [
+        'NodusOperandi_fixture' => __DIR__ . '/../src/NodusOperandi/Fixture',
     ],
 ];
