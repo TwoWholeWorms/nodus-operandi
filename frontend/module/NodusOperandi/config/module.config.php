@@ -23,12 +23,12 @@ return [
                     ],
                 ],
             ],
-            'devices' => [
+            'network' => [
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => [
-                    'route'    => '/devices',
+                    'route'    => '/network',
                     'defaults' => [
-                        'controller' => 'NodusOperandi\\Controller\\Devices',
+                        'controller' => 'NodusOperandi\\Controller\\Network',
                         'action'     => 'index',
                     ],
                 ],
@@ -38,7 +38,7 @@ return [
                 'options' => [
                     'route'    => '/clients',
                     'defaults' => [
-                        'controller' => 'NodusOperandi\\Controller\\Clients',
+                        'controller' => 'NodusOperandi\\Controller\\Devices',
                         'action'     => 'index',
                     ],
                 ],
@@ -107,8 +107,8 @@ return [
     'controllers' => [
         'invokables' => [
             'NodusOperandi\\Controller\\Alerts'     => Controller\AlertsController::class,
-            'NodusOperandi\\Controller\\Clients'    => Controller\ClientsController::class,
             'NodusOperandi\\Controller\\Devices'    => Controller\DevicesController::class,
+            'NodusOperandi\\Controller\\Network'    => Controller\NetworkController::class,
             'NodusOperandi\\Controller\\Events'     => Controller\EventsController::class,
             'NodusOperandi\\Controller\\Index'      => Controller\IndexController::class,
             'NodusOperandi\\Controller\\Settings'   => Controller\SettingsController::class,

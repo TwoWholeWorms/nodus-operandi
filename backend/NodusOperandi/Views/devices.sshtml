@@ -1,0 +1,140 @@
+﻿@Master['master']
+
+@Section['Content']
+
+	<div data-bind="foreach: devices, visible: devices().length, masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+		<div class="widget">
+
+			<div class="github-fork-ribbon-wrapper right" data-bind="visible: isNew">
+				<div class="github-fork-ribbon">
+					<a href='#' data-bind="attr: { href: authorUrl }">New!</a>
+				</div>
+			</div>
+
+			<div class="content">
+				<a href='#' data-bind="attr: { href: authorUrl }">
+					<img data-bind="attr: { src: gravatar }" alt="" class="avatar" style="float: left;" />
+				</a>
+
+				<div class="list-head clearfix">
+					<h3>
+						<a href='#' data-bind="attr: { href: url }, text: deviceName"></a>
+					</h3>
+		
+					<div id="list-meta">
+						version <span data-bind="text: version"></span> by <a href='#' data-bind="attr: { href: authorUrl }, text: author"></a>
+					</div>
+				</div>
+
+				<div class="main">
+					<p class="description clearfix" style="margin-top: 15px; height: 40px; overflow: hidden;" data-bind="text: description">
+					</p>
+		
+					<p>
+						Last updated: <span data-bind="date: lastCommit"></span>
+					</p>
+		
+					<div class="packages" data-bind="visible: packages.length">
+						Packages used in this sample
+						<div class="well well-small">
+							<ul data-bind="foreach: packages">
+								<li>
+									<a href='#' data-bind="attr: { href: $parent.nugetUrl }">
+										<span data-bind="text: Name"></span> (<span data-bind="text: Version"></span>)
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="readme" data-bind="highlight: readMe"></div>
+
+			</div>
+			<i class="icon-info-sign"></i> <a href="#" data-bind="modal: true" class="open">Read more</a>
+		</div>
+	</div>
+@EndSection
+
+@Section['Scripts']
+
+	$(function() {
+		hljs.tabReplace = '    ';
+		ko.applyBindings(new devicesViewModel());
+	});
+
+	function deviceModel(data) {
+		var self = this
+
+		self.author = data.Author;
+		self.description = data.Description;
+		self.gravatar = data.Gravatar;
+		self.hasNuget = data.HasNuget;
+		self.lastCommit = data.LastCommit;
+		self.name = data.Name;
+		self.packages = data.Packages;
+		self.readMe = data.Readme;
+		self.url = data.Url;
+		self.version = data.Version;
+		self.isNew = data.IsNew;
+
+		self.authorUrl = ko.computed(function () {
+			return 'http://github.com/' + self.author;
+		});
+
+		self.nugetUrl = ko.computed(function() {
+			return 'http://nuget.org/packages/' + self.name;
+		});
+
+		self.deviceName = ko.computed(function () {
+			return self.name.replace('Nancy.device.', '');
+		});
+	};
+
+	ko.bindingHandlers.modal = {
+		update: function (element, valueAccessor) {
+			$(element).click(function () {
+
+				var content = 
+					$($('.content', $(element).parent()).html());
+				
+				var originalDescription = 
+					$(".description", $(element).parent()).triggerHandler("originalContent").text();
+				
+				$(".description", content).html(originalDescription);
+
+				$.fancybox({
+					content: $('<div/>').addClass('list-widget').html(content)
+				 });
+			});
+		}
+	};
+
+	ko.bindingHandlers.ellipsis = {
+		update: function(element, valueAccessor, allBindingsAccessor) {
+			
+			var $element = $(element),
+				list = ko.utils.unwrapObservable(allBindingsAccessor().foreach)
+		
+			if (!list.length)
+				return
+
+			$(".widget .description").dotdotdot({watch:true});
+		}
+	};
+
+	function devicesViewModel() {
+		var self = this;
+
+		self.devices = ko.observableArray();
+
+		$.getJSON("/api/devices", function (response) {
+			var mapped = $.map(response, function (device) {
+				return new deviceModel(device);
+			});
+			self.devices(mapped);
+		});
+	};
+
+@EndSection

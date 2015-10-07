@@ -1,27 +1,32 @@
 {% extends "layout/layout" %}
 
 {% block content %}
-    <h1>Devices</h1>
-    <div class="btn-group btn-group-sm margin" role="group">
-        <button type="button" class="btn btn-default active">All</button>
-        <button type="button" class="btn btn-default">Access points</button>
-        <button type="button" class="btn btn-default">Firewalls</button>
-        <button type="button" class="btn btn-default">Power outlets</button>
-        <button type="button" class="btn btn-default">Sensors</button>
-        <button type="button" class="btn btn-default">Switches</button>
-        <button type="button" class="btn btn-default">VoIP phones</button>
+    <h1>Clients</h1>
+    <div class="btn-toolbar" role="toolbar" aria-label="...">
+        <div class="btn-group btn-group-sm margin" role="group">
+            <button type="button" class="btn btn-default active">All</button>
+            <button type="button" class="btn btn-default">Wired</button>
+            <button type="button" class="btn btn-default">Wireless</button>
+        </div>
+        <div class="btn-group btn-group-sm margin" role="group">
+            <button type="button" class="btn btn-default active">All</button>
+            <button type="button" class="btn btn-default">Users</button>
+            <button type="button" class="btn btn-default">Guests</button>
+        </div>
     </div>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>&#xa0;</th>
-                <th>Device</th>
+                <th>Client</th>
                 <th>MAC</th>
                 <th>IP</th>
-                <th>Status</th>
                 <th>Manufacturer</th>
-                <th>Model</th>
-                <th>Firmware</th>
+                <th>Device</th>
+                <th>Access point</th>
+                <th><i class="fa fa-download"></i></th>
+                <th><i class="fa fa-upload"></i></th>
+                <th>Activity</th>
                 <th>Uptime</th>
                 <th>Actions</th>
             </tr>
@@ -34,157 +39,31 @@
         <tbody>
             <tr>
                 <td><span class="fa fa-wifi"></span></td>
-                <td>Access point</td>
+                <td>iPad</td>
                 <td>16:CA:1B:C3:D7:8E:8F</td>
-                <td>10.0.0.1/8</td>
-                <td><span class="status connected">Connected</span></td>
-                <td>Cisco</td>
-                <td>Aironet 3700</td>
-                <td>v1.0.2.12412</td>
-                <td>7d 14h 23m 16s</td>
-                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button></td>
+                <td>10.1.1.1/8</td>
+                <td>Apple</td>
+                <td>iPad Air</td>
+                <td><a href="/devices#ap1">Office AP</a></td>
+                <td>1.22 GiB/s</td>
+                <td>743 MiB/s</td>
+                <td class="activity-bar"><i class="fa fa-stop"></i> <i class="fa fa-stop"></i> <i class="fa fa-stop"></i> <i class="fa fa-stop"></i></td>
+                <td>9d 2h 15m 23s</td>
+                <td class="actions"><button class="btn btn-danger"><span class="fa fa-times"></span> Block</button> <button class="btn btn-warning"><span class="fa fa-refresh"></span> Reconnect</button></td>
             </tr>
             <tr>
-                <td><span class="fa fa-fire"></span></td>
-                <td>Firewall</td>
-                <td>2C:71:23:45:67:89:AF</td>
-                <td>10.0.1.9/8</td>
-                <td><span class="status connected">Connected</span></td>
-                <td>FireBrick</td>
-                <td>FB2700</td>
-                <td>v2.1.3.2</td>
-                <td>6h 17m 19s</td>
-                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button></td>
-            </tr>
-            <tr>
-                <td><span class="fa fa-plug"></span></td>
-                <td>Media centre power strip</td>
-                <td>53:DA:AB:CD:12:41:FC</td>
-                <td>10.0.10.3/8</td>
-                <td><span class="status connected">Connected</span></td>
-                <td>Ubiquiti</td>
-                <td>mPower PRO (EU)</td>
-                <td>v4.2.3.5</td>
-                <td>27m 1s</td>
-                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button></td>
-            </tr>
-            <tr>
-                <td>&#xa0;</td>
-                <td colspan="9">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>&#xa0;</th>
-                                <th>Device</th>
-                                <th>Status</th>
-                                <th>Uptime</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1 <span class="fa fa-television"></span></td>
-                                <td>Television</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>2 <span class="fa fa-gamepad"></span></td>
-                                <td>PS4</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>3 <span class="fa fa-gamepad"></span></td>
-                                <td>XBox 360</td>
-                                <td><span class="status on">On</span></td>
-                                <td>3h 51m 9s</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success" disabled="disabled"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>4 <span class="fa fa-gamepad"></span></td>
-                                <td>XBox One</td>
-                                <td><span class="status on">On</span></td>
-                                <td>8h 24m 43s</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success" disabled="disabled"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>5 <span class="fa fa-gamepad"></span></td>
-                                <td>Wii</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>6 <span class="fa fa-gamepad"></span></td>
-                                <td>Wii U</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td><span class="fa fa-plug"></span></td>
-                <td>Office power strip</td>
-                <td>53:DA:AB:CD:12:41:FC</td>
-                <td>10.0.10.4/8</td>
-                <td><span class="status connected">Connected</span></td>
-                <td>Ubiquiti</td>
-                <td>mPower PRO (EU)</td>
-                <td>v4.2.3.5</td>
-                <td>2d 1h 53m 9s</td>
-                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button></td>
-            </tr>
-            <tr>
-                <td>&#xa0;</td>
-                <td colspan="9">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>&#xa0;</th>
-                                <th>Device</th>
-                                <th>Status</th>
-                                <th>Uptime</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1 <span class="fa fa-desktop"></span></td>
-                                <td>PC</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>2 <span class="fa fa-television"></span></td>
-                                <td>Screen 1</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>3 <span class="fa fa-television"></span></td>
-                                <td>Screen 2</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                            <tr>
-                                <td>4 <span class="fa fa-television"></span></td>
-                                <td>Screen 3</td>
-                                <td><span class="status off">Off</span></td>
-                                <td>&#x2014;</td>
-                                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </td>
+                <td><span class="fa fa-wifi"></span></td>
+                <td>iPhone</td>
+                <td>16:CA:1B:C3:D7:8E:8F</td>
+                <td>10.1.1.2/8</td>
+                <td>Apple</td>
+                <td>iPhone 5S</td>
+                <td><a href="/devices#ap1">Office AP</a></td>
+                <td>34 MiB/s</td>
+                <td>92 MiB/s</td>
+                <td class="activity-bar"><i class="fa fa-stop"></i> <i class="fa fa-stop"></i></td>
+                <td>6h 1m 8s</td>
+                <td class="actions"><button class="btn btn-danger"><span class="fa fa-times"></span> Block</button> <button class="btn btn-warning"><span class="fa fa-refresh"></span> Reconnect</button></td>
             </tr>
         </tbody>
     </table>

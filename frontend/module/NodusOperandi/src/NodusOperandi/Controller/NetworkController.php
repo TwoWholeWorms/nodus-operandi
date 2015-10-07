@@ -12,7 +12,7 @@ namespace NodusOperandi\Controller;
 
 use VinariCore\Mvc\Controller\AbstractActionController;
 
-class ClientsController extends AbstractActionController
+class NetworkController extends AbstractActionController
 {
 
     public function indexAction()

@@ -1,0 +1,70 @@
+﻿@Master['master']
+
+@Section['Content']
+
+	<div data-bind="foreach: devices, visible: devices().length, masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+		<div data-bind="visible: isActive && !isDeleted" class="widget">
+
+			<div class="content">
+				<div class="list-head clearfix">
+					<h3>
+						<a href='#' data-bind="attr: { href: url }, text: deviceName"></a>
+					</h3>
+				</div>
+
+			</div>
+		</div>
+	</div>
+@EndSection
+
+@Section['Scripts']
+
+	$(function() {
+		hljs.tabReplace = '    ';
+		ko.applyBindings(new devicesViewModel());
+	});
+
+	function deviceModel(data) {
+		var self = this
+
+		self.isDeleted = data.IsDeleted;
+		self.isActive = data.IsActive;
+		self.name = data.Name;
+	};
+
+	ko.bindingHandlers.modal = {
+		update: function (element, valueAccessor) {
+			$(element).click(function () {
+				$.fancybox({
+					content: $('<div/>').addClass('list-widget').html(content)
+				 });
+			});
+		}
+	};
+
+	ko.bindingHandlers.ellipsis = {
+		update: function(element, valueAccessor, allBindingsAccessor) {
+			var $element = $(element),
+				list = ko.utils.unwrapObservable(allBindingsAccessor().foreach)
+		
+			if (!list.length)
+				return
+
+			$(".widget .description").dotdotdot({watch:true});
+		}
+	};
+
+	function devicesViewModel() {
+		var self = this;
+
+		self.devices = ko.observableArray();
+
+		$.getJSON("/api/devices", function (response) {
+			var mapped = $.map(response, function (device) {
+				return new deviceModel(device);
+			});
+			self.devices(mapped);
+		});
+	};
+
+@EndSection
