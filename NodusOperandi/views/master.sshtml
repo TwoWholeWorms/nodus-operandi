@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}NodusOperandi{% endblock title %}</title>
+
+        <!-- {{ webServerEnvironment|upper }} {{ webServerName }} -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        @Section['Meta']
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- Favicon -->
+        <link type="image/png" rel="icon" href="/Content/images/favicon.png" />
+
+        <!-- Le styles -->
+        <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,100,900" />
+        <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <link type="text/css" rel="stylesheet" href="/Content/css/nodus.min.css" />
+
+        @Section['Styles']
+	</head>
+	<body>
+        <nav class="navbar navbar-default" role="navigation">
+            <a class="navbar-brand" href="/"><span>NodusOperandi</span></a>
+        </nav>
+        <div class="container-fluid">
+            <nav class="left-nav" role="navigation">
+                <ul>
+                    @IfNotNull.Context.CurrentUser
+                        <li><a href="/"><span class="nav-icon-container"><span class="fa fa-tachometer"></span></span> Dashboard</a></li>
+                        <li><a href="/network"><span class="nav-icon-container"><span class="fa fa-puzzle-piece"></span></span> Network</a></li>
+                        <li><a href="/devices"><span class="nav-icon-container"><span class="fa fa-desktop"></span></span> Devices</a></li>
+                        <li><a href="/statistics"><span class="nav-icon-container"><span class="fa fa-area-chart"></span></span> Statistics</a></li>
+                        <li><a href="/alerts"><span class="nav-icon-container"><span class="fa fa-exclamation-triangle"></span></span> Alerts</a></li>
+                        <li><a href="/events"><span class="nav-icon-container"><span class="fa fa-calendar"></span></span> Event log</a></li>
+                        <li><a href="/settings"><span class="nav-icon-container"><span class="fa fa-gear"></span></span> Settings</a></li>
+                        <li><a href="/user/logout"><span class="nav-icon-container"><span class="fa fa-sign-out"></span></span> Log out</a></li>
+                    @EndIf
+					@IfNull.Context.CurrentUser
+                        <li><a href="/user/login"><span class="nav-icon-container"><span class="fa fa-sign-in"></span></span> Log in</a></li>
+                    @EndIf
+                </ul>
+            </nav>
+            <section class="main-pane">
+                @Section['Content']
+            <section>
+        </div> <!-- /container -->
+		
+        <!-- Scripts -->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+        <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/Content/js/nodus.min.js"></script>
+
+		@Section['Scripts']
+	</body>
+</html>

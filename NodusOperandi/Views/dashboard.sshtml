@@ -2,69 +2,59 @@
 
 @Section['Content']
 
-	<div data-bind="foreach: devices, visible: devices().length, masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
-		<div data-bind="visible: isActive && !isDeleted" class="widget">
-
-			<div class="content">
-				<div class="list-head clearfix">
-					<h3>
-						<a href='#' data-bind="attr: { href: url }, text: deviceName"></a>
-					</h3>
-				</div>
-
-			</div>
-		</div>
+	<div data-bind="masonry: { columnWidth: 425, isAnimated: true }">
+		<h3>Devices: <span data-bind="text: devices().length">&#x2014;</span></h3>
+		<h3>Clients: <span data-bind="text: clients().length">&#x2014;</span></h3>
 	</div>
+
 @EndSection
 
 @Section['Scripts']
 
+	<script type="text/javascript">
+	// <!--[CDATA[
+
 	$(function() {
-		hljs.tabReplace = '    ';
-		ko.applyBindings(new devicesViewModel());
+		ko.applyBindings(new DashboardViewModel());
 	});
 
-	function deviceModel(data) {
+	function DeviceModel(data) {
 		var self = this
 
-		self.isDeleted = data.IsDeleted;
-		self.isActive = data.IsActive;
 		self.name = data.Name;
+		self.createdAt = data.CreatedAt;
+		self.lastModifiedAt = data.LastModifiedAt;
 	};
 
-	ko.bindingHandlers.modal = {
-		update: function (element, valueAccessor) {
-			$(element).click(function () {
-				$.fancybox({
-					content: $('<div/>').addClass('list-widget').html(content)
-				 });
-			});
-		}
+	function ClientModel(data) {
+		var self = this
+
+		self.name = data.Name;
+		self.createdAt = data.CreatedAt;
+		self.lastModifiedAt = data.LastModifiedAt;
 	};
 
-	ko.bindingHandlers.ellipsis = {
-		update: function(element, valueAccessor, allBindingsAccessor) {
-			var $element = $(element),
-				list = ko.utils.unwrapObservable(allBindingsAccessor().foreach)
-		
-			if (!list.length)
-				return
-
-			$(".widget .description").dotdotdot({watch:true});
-		}
-	};
-
-	function devicesViewModel() {
+	function DashboardViewModel() {
 		var self = this;
 
+		self.clients = ko.observableArray();
 		self.devices = ko.observableArray();
 
 		$.getJSON("/api/devices", function (response) {
 			var mapped = $.map(response, function (device) {
-				return new deviceModel(device);
+				return new DeviceModel(device);
 			});
 			self.devices(mapped);
 		});
+
+		$.getJSON("/api/clients", function (response) {
+			var mapped = $.map(response, function (client) {
+				return new ClientModel(client);
+			});
+			self.clients(mapped);
+		});
 	};
 
+	// ]]-->
+	</script>
 @EndSection
