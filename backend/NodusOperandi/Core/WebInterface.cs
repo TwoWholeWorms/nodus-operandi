@@ -19,7 +19,7 @@ namespace NodusOperandi.Core
         public void Run()
         {
             logger.Debug("Starting web interface");
-            using (host = new NancyHost(new Uri("http://localhost:6737"))) {
+            using (host = new NancyHost(new Uri(Configuration.NancyNamespace))) {
                 host.Start();
             }
         }

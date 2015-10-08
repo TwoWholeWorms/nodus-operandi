@@ -18,7 +18,7 @@ namespace NodusOperandi.Data
         private readonly MongoCollection<ClientModel> collection;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MongoDbDeviceRepository"/> class, with
+        /// Initializes a new instance of the <see cref="MongoDbClientRepository"/> class, with
         /// the provided <see cref="MongoDatabase"/>.
         /// </summary>
         /// <param name="database">The <see cref="MongoDatabase"/> instance that should be used by the repository.</param>
@@ -28,7 +28,7 @@ namespace NodusOperandi.Data
         }
 
         /// <summary>
-        /// Deletes all devices.
+        /// Deletes all clients.
         /// </summary>
         public void DeleteAll()
         {
@@ -38,10 +38,10 @@ namespace NodusOperandi.Data
         /// <summary>
         /// Deletes a client by its id
         /// </summary>
-        /// <param name="id">The id of the device to delete from the database.</param>
+        /// <param name="id">The id of the client to delete from the database.</param>
         public void DeleteById(string id)
         {
-            this.collection.Remove(Query<ClientModel>.Where(device => device.Id == id));
+            this.collection.Remove(Query<ClientModel>.Where(client => client.Id == id));
         }
 
         /// <summary>

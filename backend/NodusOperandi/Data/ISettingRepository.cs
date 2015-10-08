@@ -16,17 +16,25 @@ namespace NodusOperandi.Data
     {
 
         /// <summary>
-        /// Gets all the demos in the data store.
+        /// Gets all settings
         /// </summary>
         /// <returns>An <see cref="IEnumerable{T}"/>, of <see cref="SettingModel"/> instances.</returns>
         IEnumerable<SettingModel> GetAll();
-        
+
         /// <summary>
-        /// Gets a list of settings from the database by the setting section
+        /// Gets all settings for a section
         /// </summary>
         /// <param name="section">The name of the section.</param>
+        /// <returns>An <see cref="IEnumerable{T}"/>, of <see cref="SettingModel"/> instances.</returns>
+        IEnumerable<SettingModel> GetBySection(string section);
+
+        /// <summary>
+        /// Gets a setting from the database by the setting section and key
+        /// </summary>
+        /// <param name="section">The name of the section.</param>
+        /// <param name="key">The name of the key.</param>
         /// <returns>A <see cref="SettingModel"/> instance, or null.</returns>
-        SettingModel GetByMacAddress(string section);
+        SettingModel GetBySectionAndKey(string section, string key);
 
     }
 

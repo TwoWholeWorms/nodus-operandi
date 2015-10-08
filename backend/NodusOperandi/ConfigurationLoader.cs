@@ -32,8 +32,7 @@ namespace NodusOperandi
         /// <param name="configurationObject">Object to populate</param>
         public static void Load(string filename, object configurationObject)
         {
-            if (!File.Exists(filename) || configurationObject == null)
-            {
+            if (!File.Exists(filename) || configurationObject == null) {
                 return;
             }
 
@@ -43,16 +42,14 @@ namespace NodusOperandi
                 .ToArray()
                 .Where(c => c.Length == 2);
 
-            foreach (var configEntry in configEntries)
-            {
+            foreach (var configEntry in configEntries) {
                 SetEntry(configEntry[0].Trim(), configEntry[1].Trim(), configurationObject);
             }
         }
 
         private static void SetEntry(string key, string value, object configurationObject)
         {
-            if (SetStaticProperty(key, value, configurationObject))
-            {
+            if (SetStaticProperty(key, value, configurationObject)) {
                 return;
             }
 
@@ -64,21 +61,17 @@ namespace NodusOperandi
             var property = configurationObject.GetType()
                 .GetProperty(key, PublicStaticIgnoreCase);
 
-            if (property == null)
-            {
+            if (property == null) {
                 return false;
             }
 
-            try
-            {
+            try {
                 var convertedValue = Convert(value, property.PropertyType);
 
                 property.SetValue(configurationObject, convertedValue, null);
 
                 return true;
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 return false;
             }
         }
@@ -88,47 +81,37 @@ namespace NodusOperandi
             var property = configurationObject.GetType()
                 .GetProperty(key, PublicInstanceIgnoreCase);
 
-            if (property == null)
-            {
+            if (property == null) {
                 return false;
             }
 
-            try
-            {
+            try {
                 var convertedValue = Convert(value, property.PropertyType);
 
                 property.SetValue(configurationObject, convertedValue, null);
 
                 return true;
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 return false;
             }
         }
 
         private static object Convert(string input, Type destinationType)
         {
-            if (destinationType == typeof (string))
-            {
+            if (destinationType == typeof (string)) {
                 return input;
             }
 
             var converter = TypeDescriptor.GetConverter(destinationType);
 
-            if (converter == null || !converter.CanConvertFrom(typeof(string)))
-            {
+            if (converter == null || !converter.CanConvertFrom(typeof(string))) {
                 return null;
             }
 
-            try
-            {
+            try {
                 return converter.ConvertFrom(input);
-            }
-            catch (FormatException)
-            {
-                if (destinationType == typeof(bool) && converter.GetType() == typeof(BooleanConverter) && "on".Equals(input, StringComparison.OrdinalIgnoreCase))
-                {
+            } catch (FormatException) {
+                if (destinationType == typeof(bool) && converter.GetType() == typeof(BooleanConverter) && "on".Equals(input, StringComparison.OrdinalIgnoreCase)) {
                     return true;
                 }
                 return null;

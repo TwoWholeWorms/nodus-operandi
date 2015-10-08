@@ -10,11 +10,12 @@ namespace NodusOperandi
     
         static Configuration()
         {
-            ConnectionString = @"mongodb://localhost:27017";
+            ConnectionString = @"mongodb://127.0.0.1:27017";
             EncryptionKey = "SuperSecretPass";
             HmacKey = "UberSuperSecret";
             Password = "Password1";
             DatabaseName = "NodusOperandi";
+            NancyNamespace = "http://127.0.0.1:6737";
         }
 
         public static string ConnectionString { get; set; }
@@ -26,6 +27,8 @@ namespace NodusOperandi
         public static string Password { get; set; }
 
         public static string DatabaseName { get; set; }
+
+        public static string NancyNamespace { get; set; }
 
     }
 

@@ -64,8 +64,18 @@ namespace NodusOperandi
                 container.Resolve<MongoServer>();
 
             container.Register((c, p) => server.GetDatabase(Configuration.DatabaseName));
-            container.Register<IDeviceRepository, MongoDbDeviceRepository>();
+
+            container.Register<IAlertRepository, MongoDbAlertRepository>();
             container.Register<IClientRepository, MongoDbClientRepository>();
+            container.Register<IDeviceRepository, MongoDbDeviceRepository>();
+            container.Register<ISettingRepository, MongoDbSettingRepository>();
+            container.Register<IStatisticsRepository, MongoDbStatisticsRepository>();
+
+            container.Register<IAlertModelFactory, AlertModelFactory>();
+            container.Register<IClientModelFactory, ClientModelFactory>();
+            container.Register<IDeviceModelFactory, DeviceModelFactory>();
+            container.Register<ISettingModelFactory, SettingModelFactory>();
+            container.Register<IStatisticsModelFactory, StatisticsModelFactory>();
         }
 
         protected override DiagnosticsConfiguration DiagnosticsConfiguration

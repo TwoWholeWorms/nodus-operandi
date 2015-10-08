@@ -8,6 +8,8 @@ namespace NodusOperandi.Models
     using System;
     using System.Collections.Generic;
     using Data;
+    using MongoDB.Bson.Serialization.Attributes;
+    using MongoDB.Bson.Serialization.IdGenerators;
 
     /// <summary>
     /// Stores information about a NodusOperandi entity.
@@ -18,6 +20,7 @@ namespace NodusOperandi.Models
         /// <summary>
         /// Gets or sets the ID of the entity.
         /// </summary>
+        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
         public string Id { get; set; }
 
         /// <summary>

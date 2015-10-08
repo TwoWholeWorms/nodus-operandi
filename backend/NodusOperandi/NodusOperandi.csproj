@@ -98,6 +98,11 @@
     <Compile Include="Data\IStatisticsRepository.cs" />
     <Compile Include="Data\IStatisticsModelFactory.cs" />
     <Compile Include="Models\StatisticsModel.cs" />
+    <Compile Include="Data\DeviceModelFactory.cs" />
+    <Compile Include="Data\ClientModelFactory.cs" />
+    <Compile Include="Data\AlertModelFactory.cs" />
+    <Compile Include="Data\MongoDbAlertRepository.cs" />
+    <Compile Include="Data\SettingModelFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
