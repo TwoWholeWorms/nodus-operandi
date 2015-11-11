@@ -1,0 +1,22 @@
+<header class="main-header">
+    <a href="/" class="logo">
+        <span class="logo-mini"><strong>N</strong>O</span>
+        <span class="logo-lg"><strong>Nodus</strong>Operandi</span>
+    </a>
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Toggle sidebar button -->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Show / hide sidebar</span>
+        </a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                @Html.Partial("Partials/Structure/Header/NotificationsMenu.cshtml")
+                @Html.Partial("Partials/Structure/Header/AlertsMenu.cshtml")
+                @Html.Partial("Partials/Structure/Header/UserMenu.cshtml")
+                <li>
+                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i><span class="sr-only">System settings</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header><!-- .main-header -->

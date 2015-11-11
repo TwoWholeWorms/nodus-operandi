@@ -1,0 +1,26 @@
+@{
+	Layout = "Layout.cshtml";
+}
+
+<div class="container-login">
+    <form id="formLogin" class="form" action="/login" method="post">
+    	<div class="panel panel-default panel-login">
+    		<div class="panel-heading">
+    			<h3 class="panel-title">Log in</h3>
+    		</div>
+    		<div class="panel-body">
+    			<div class="form-group">
+	    			<!--<label for="formLoginUsername">Username</label>-->
+					<input type="text" class="form-control" name="Username" id="formLoginUsername" placeholder="admin" />
+				</div>
+    			<div class="form-group">
+	    			<!--<label for="formLoginPassword">Password</label>-->
+					<input type="password" class="form-control" name="Password" id="formLoginPassword" placeholder="Password" />
+				</div>
+			</div>
+			<div class="panel-footer text-right">
+				<button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+			</div>
+		</div>
+	</form>
+</div>

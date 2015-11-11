@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @Html.Partial("Partials/Structure/Core/Head.cshtml")
+	</head>
+	<body class="skin-blue sidebar-mini">
+        <div class="wrapper">
+            @Html.Partial("Partials/Structure/Header.cshtml")
+            @Html.Partial("Partials/Structure/Sidebar.cshtml")
+            <div class="content-wrapper">
+                <section class="content-header">
+                    @RenderSection("ContentTitle", required:false)
+                    @RenderSection("Breadcrumb", required:false)
+                </section>
+                <section class="content" style="min-height:98vh">
+                    @RenderBody()
+                <section>
+            </div> <!-- /.content-wrapper -->
+        </div><!-- /.wrapper -->
+
+        @Html.Partial("Partials/Structure/Core/Scripts.cshtml")
+	</body>
+</html>

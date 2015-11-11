@@ -16,7 +16,7 @@
             {
                 deviceRepository.GetAll();
 
-                return View["events"];
+                return View["Events"];
             };
 
         }

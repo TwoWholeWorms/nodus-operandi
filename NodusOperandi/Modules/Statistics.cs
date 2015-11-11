@@ -16,7 +16,7 @@
             {
                 statisticsRepository.GetAll();
 
-                return View["statistics"];
+                return View["Statistics"];
             };
 
         }

@@ -1,0 +1,9 @@
+<aside class="main-sidebar">
+    <section class="sidebar" style="height:auto">
+        @if (null == Context.CurrentUser) {
+            @Html.Partial("Partials/Structure/Sidebar/LoggedOutSidebarMenu.cshtml")
+        } else {
+            @Html.Partial("Partials/Structure/Sidebar/LoggedInSidebarMenu.cshtml")
+        }
+    </section><!-- /.sidebar -->
+</aside><!-- /.main-sidebar -->

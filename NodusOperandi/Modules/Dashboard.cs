@@ -17,7 +17,7 @@
                 clientRepository.GetAll();
                 deviceRepository.GetAll();
 
-                return View["dashboard"];
+                return View["Dashboard"];
             };
 
         }

@@ -16,7 +16,7 @@
             {
                 deviceRepository.GetAll();
 
-                return View["network"];
+                return View["Network"];
             };
             
         }

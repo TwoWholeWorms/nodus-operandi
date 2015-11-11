@@ -16,7 +16,7 @@
             {
                 alertRepository.GetAll();
 
-                return View["alerts"];
+                return View["Alerts"];
             };
 
         }

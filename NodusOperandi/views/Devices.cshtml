@@ -1,0 +1,104 @@
+@{
+	Layout = "Layout.cshtml";
+}
+
+@section ContentTitle {
+	 <h1>Devices <small>Control panel</small></h1>
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+	    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+	    <li class="active">
+	        Devices
+	    </li>
+	</ol>
+}
+
+
+@section Scripts {
+
+	<script type="text/javascript">
+	// <!--[CDATA[
+
+	$(function() {
+		ko.applyBindings(new DevicesViewModel());
+	});
+
+	function DeviceModel(data) {
+		var self = this
+
+		self.name = data.name;
+		self.createdAt = data.createdAt;
+		self.lastModifiedAt = data.lastModifiedAt;
+		self.isActive = data.isActive;
+		self.isDeleted = data.isDeleted;
+		self.macAddress = data.macAddress;
+		self.ipv4Address = data.ipv4Address;
+		self.ipv6Address = data.ipv6Address;
+		self.manufacturer = data.manufacturer;
+		self.model = data.model;
+		self.firmwareVersion = data.firmwareVersion;
+		self.uptime = data.uptime;
+		self.status = data.status;
+		self.serialNumber = data.serialNumber;
+	};
+
+	function DevicesViewModel() {
+		var self = this;
+
+		self.devices = ko.observableArray();
+
+		$.getJSON("/api/devices", function (response) {
+			var mapped = $.map(response, function (device) {
+				return new DeviceModel(device);
+			});
+			self.devices(mapped);
+		});
+	};
+
+	// ]]-->
+	</script>
+
+}
+
+<div class="btn-group btn-group-sm margin" role="group">
+    <button type="button" class="btn btn-default active">All</button>
+    <button type="button" class="btn btn-default">Lights</button>
+    <button type="button" class="btn btn-default">Power outlets</button>
+    <button type="button" class="btn btn-default">Sensors</button>
+    <button type="button" class="btn btn-default">Switches</button>
+    <button type="button" class="btn btn-default">VoIP phones</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>&#xa0;</th>
+            <th>Device</th>
+            <th>Controller</th>
+            <th>Status</th>
+            <th>Uptime</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="5">&#xa0;</td>
+        </tr>
+    </tfoot>
+    <tbody data-bind="visible: !devices().length">
+    	<tr>
+    		<td colspan="5">There are no smart-controllable devices currently registered on the network.</td>
+    	</tr>
+    </tbody>
+    <tbody data-bind="foreach: devices, visible: devices().length">
+		<tr data-bind="masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+            <td><span class="fa fa-television"></span></td>
+            <td data-bind="text: name"></td>
+            <td>&#x2014;</td>
+            <td><span class="status off">Off</span></td>
+            <td data-bind="text: uptime"></td>
+            <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
+        </tr>
+    </tbody>
+</table>

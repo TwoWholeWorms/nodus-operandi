@@ -1,0 +1,108 @@
+@{
+	Layout = "Layout.cshtml";
+}
+
+@section ContentTitle {
+	 <h1>Clients <small>Control panel</small></h1>
+}
+
+@section Breadcrumb {
+	<ol class="breadcrumb">
+	    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+	    <li class="active">
+	        Clients
+	    </li>
+	</ol>
+}
+
+@section Scripts {
+
+	<script type="text/javascript">
+	// <!--[CDATA[
+
+	$(function() {
+		ko.applyBindings(new ClientsViewModel());
+	});
+
+	function ClientModel(data) {
+		var self = this
+
+		self.name = data.Name;
+		self.createdAt = data.CreatedAt;
+		self.lastModifiedAt = data.LastModifiedAt;
+	};
+
+	function ClientsViewModel() {
+		var self = this;
+
+		self.clients = ko.observableArray();
+
+		$.getJSON("/api/clients", function (response) {
+			var mapped = $.map(response, function (client) {
+				return new ClientModel(client);
+			});
+			self.clients(mapped);
+		});
+	};
+
+	// ]]-->
+	</script>
+
+}
+
+<div class="btn-toolbar" role="toolbar" aria-label="...">
+    <div class="btn-group btn-group-sm margin" role="group">
+        <button type="button" class="btn btn-default active">All</button>
+        <button type="button" class="btn btn-default">Wired</button>
+        <button type="button" class="btn btn-default">Wireless</button>
+    </div>
+    <div class="btn-group btn-group-sm margin" role="group">
+        <button type="button" class="btn btn-default active">All</button>
+        <button type="button" class="btn btn-default">Users</button>
+        <button type="button" class="btn btn-default">Guests</button>
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>&#xa0;</th>
+            <th>Client</th>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Manufacturer</th>
+            <th>Device</th>
+            <th>Access point</th>
+            <th><i class="fa fa-download"></i></th>
+            <th><i class="fa fa-upload"></i></th>
+            <th>Activity</th>
+            <th>Uptime</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="10">&#xa0;</td>
+        </tr>
+    </tfoot>
+    <tbody data-bind="visible: !clients().length">
+    	<tr>
+    		<td colspan="10">There are no devices currently registered on the network.</td>
+    	</tr>
+    </tbody>
+    <tbody data-bind="visible: clients().length">
+		<tr data-bind="foreach: clients, visible: isActive &amp;&amp; !isDeleted, masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+            <td><span class="fa fa-wifi"></span></td>
+            <td><a href="#" data-bind="text: name"></a></td>
+            <td data-bind="text: macAddress"></td>
+            <td data-bind="text: ipv4Address + ' ' + ipv6Address"></td>
+            <td data-bind="text: manufacturer"></td>
+            <td data-bind="text: model"></td>
+            <td><a href="#" data-bind="text: accessPoint.name"></a></td>
+            <td data-bind="text: downstreamData"></td>
+            <td data-bind="text: upstreamData"></td>
+            <td class="activity-bar"><i class="fa fa-stop"></i> <i class="fa fa-stop"></i> <i class="fa fa-stop"></i> <i class="fa fa-stop"></i></td>
+            <td data-bind="text: uptime"></td>
+            <td class="actions"><button class="btn btn-danger"><span class="fa fa-times"></span> Block</button> <button class="btn btn-warning"><span class="fa fa-refresh"></span> Reconnect</button></td>
+		</tr>
+	</tbody>
+</table>

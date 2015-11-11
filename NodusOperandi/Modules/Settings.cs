@@ -16,7 +16,7 @@
             {
                 settingRepository.GetAll();
 
-                return View["settings"];
+                return View["Settings"];
             };
 
         }

@@ -16,7 +16,7 @@ namespace NodusOperandi.Modules
 
             Get["/login"] = x =>
             {
-                return View["login"];
+                return View["Login"];
             };
 
             Post["/login"] = parameters =>

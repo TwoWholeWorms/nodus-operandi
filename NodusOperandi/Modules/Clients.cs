@@ -16,7 +16,7 @@
             {
                 clientRepository.GetAll();
 
-                return View["clients"];
+                return View["Clients"];
             };
             
             Delete["/clients/{id}"] = parameters =>

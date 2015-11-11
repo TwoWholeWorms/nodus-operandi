@@ -16,7 +16,7 @@
             {
                 deviceRepository.GetAll();
 
-                return View["devices"];
+                return View["Devices"];
             };
             
             Delete["/devices/{id}"] = parameters =>
