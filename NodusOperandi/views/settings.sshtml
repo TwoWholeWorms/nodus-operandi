@@ -1,0 +1,62 @@
+﻿@Master['master']
+
+@Section['ContentHeader']
+	 Settings <small>Control panel</small>
+@EndSection
+
+@Section['ContentTitle']
+	 Settings
+@EndSection
+
+@Section['Content']
+
+    <h1>Settings</h1>
+    <p>Todo: Write settings panel</p>
+
+@EndSection
+
+@Section['Scripts']
+
+	<script type="text/javascript">
+	// <!--[CDATA[
+
+	$(function() {
+		ko.applyBindings(new DevicesViewModel());
+	});
+
+	function DeviceModel(data) {
+		var self = this
+
+		self.name = data.name;
+		self.createdAt = data.createdAt;
+		self.lastModifiedAt = data.lastModifiedAt;
+		self.isActive = data.isActive;
+		self.isDeleted = data.isDeleted;
+		self.macAddress = data.macAddress;
+		self.ipv4Address = data.ipv4Address;
+		self.ipv6Address = data.ipv6Address;
+		self.manufacturer = data.manufacturer;
+		self.model = data.model;
+		self.firmwareVersion = data.firmwareVersion;
+		self.uptime = data.uptime;
+		self.status = data.status;
+		self.serialNumber = data.serialNumber;
+	};
+
+	function DevicesViewModel() {
+		var self = this;
+
+		self.devices = ko.observableArray();
+
+		$.getJSON("/api/devices", function (response) {
+			var mapped = $.map(response, function (device) {
+				return new DeviceModel(device);
+			});
+			self.devices(mapped);
+		});
+	};
+
+	// ]]-->
+	</script>
+
+@EndSection

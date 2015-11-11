@@ -4,6 +4,7 @@
 
 namespace NodusOperandi.Data
 {
+
     using System.Collections.Generic;
     using Models;
 
@@ -13,6 +14,7 @@ namespace NodusOperandi.Data
     /// </summary>
     public interface INodusOperandiRepository
     {
+    
         /// <summary>
         /// Deletes all demos.
         /// </summary>
@@ -29,5 +31,7 @@ namespace NodusOperandi.Data
         /// </summary>
         /// <param name="model">The <see cref="AbstractNodusOperandiModel"/> instance to persist</param>
         void Persist(AbstractNodusOperandiModel model);
+
     }
+
 }

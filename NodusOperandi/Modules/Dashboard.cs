@@ -1,5 +1,4 @@
-﻿
-namespace NodusOperandi.Modules
+﻿namespace NodusOperandi.Modules
 {
 
     using Data;

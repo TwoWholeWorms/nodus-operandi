@@ -6,7 +6,8 @@ module.exports = function(grunt) {
 
 		uglify: {
 			ni: {
-				src: ['resources/js/includes/bootstrap-switch.min.js', 'resources/js/ni.js'],
+				/*src: ['resources/js/includes/bootstrap-switch.min.js', 'resources/js/nodus.js'],*/
+				src: ['resources/js/nodus.js'],
 				dest: 'NodusOperandi/Content/js/nodus.min.js'
 			}
 		},

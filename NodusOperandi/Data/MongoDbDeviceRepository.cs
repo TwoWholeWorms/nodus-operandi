@@ -4,6 +4,7 @@
 
 namespace NodusOperandi.Data
 {
+
     using System.Collections.Generic;
     using Models;
     using MongoDB.Driver;
@@ -59,7 +60,12 @@ namespace NodusOperandi.Data
         /// <param name="device">The <see cref="DeviceModel"/> instance to persist</param>
         public void Persist(AbstractNodusOperandiModel device)
         {
-            collection.Insert(device);
+            collection.Save(device);
+        }
+
+        public DeviceModel GetByManufacturerAndSerialNumber(string manufacturer, string serialNumber)
+        {
+            return this.collection.FindOne(Query<DeviceModel>.Where(device => device.Manufacturer == manufacturer && device.SerialNumber == serialNumber));
         }
 
         public DeviceModel GetByMacAddress(string macAddress)

@@ -4,6 +4,7 @@
 
 namespace NodusOperandi
 {
+
     using System.IO;
     using MongoDB.Driver;
     using Data;
@@ -17,6 +18,10 @@ namespace NodusOperandi
 
     public class Bootstrapper : DefaultNancyBootstrapper
     {
+
+        public static MongoClient mongoClient;
+        public static MongoDatabase mongoDb;
+
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
@@ -52,6 +57,7 @@ namespace NodusOperandi
 
             var client =
                 new MongoClient(Configuration.ConnectionString);
+            mongoClient = client;
 
             container.Register((c, p) => client.GetServer());
         }
@@ -64,6 +70,7 @@ namespace NodusOperandi
                 container.Resolve<MongoServer>();
 
             container.Register((c, p) => server.GetDatabase(Configuration.DatabaseName));
+            mongoDb = server.GetDatabase(Configuration.DatabaseName);
 
             container.Register<IAlertRepository, MongoDbAlertRepository>();
             container.Register<IClientRepository, MongoDbClientRepository>();
@@ -82,5 +89,7 @@ namespace NodusOperandi
         {
             get { return new DiagnosticsConfiguration() { Password = Configuration.Password }; }
         }
+
     }
+
 }

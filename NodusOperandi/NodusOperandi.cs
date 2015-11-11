@@ -18,8 +18,7 @@ namespace NodusOperandi
 
         readonly static Logger logger = LogManager.GetCurrentClassLogger();
 
-        static List<NodusOperandiPlugin> Plugins = new List<NodusOperandiPlugin>();
-        static List<Thread>              Threads = new List<Thread>();
+        static List<Thread> Threads = new List<Thread>();
 
         public static void Main(string[] args)
         {
@@ -65,7 +64,7 @@ namespace NodusOperandi
             // Remove the plugin initialiser as it's no longer needed
             AppDomain.CurrentDomain.AssemblyLoad -= PluginInitializer;
 
-            logger.Info("{0} plugins enabled", Plugins.Count);
+            logger.Info("{0} plugins enabled", PluginManager.Plugins.Count);
         }
 
         static void PluginInitializer(object sender, AssemblyLoadEventArgs args)
@@ -79,6 +78,12 @@ namespace NodusOperandi
 
         public static void Run()
         {
+            logger.Debug("Launching CLI");
+
+            var cliThread = new Thread(RunCli);
+            cliThread.Start();
+            Threads.Add(cliThread);
+
             logger.Debug("Launching controller");
 
             var controllerThread = new Thread(RunController);
@@ -99,6 +104,16 @@ namespace NodusOperandi
                     }
                 }
                 Thread.Sleep(1000);
+            }
+        }
+
+        public static void RunCli()
+        {
+            try {
+                var cli = new Cli();
+                cli.Run();
+            } catch (Exception e) {
+                logger.Error(e);
             }
         }
 

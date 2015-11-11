@@ -1,11 +1,16 @@
 ﻿@Master['master']
 
+@Section['ContentHeader']
+	 Dashboard <small>Control panel</small>
+@EndSection
+
+@Section['ContentTitle']
+	 Dashboard
+@EndSection
+
 @Section['Content']
 
-	<div data-bind="masonry: { columnWidth: 425, isAnimated: true }">
-		<h3>Devices: <span data-bind="text: devices().length">&#x2014;</span></h3>
-		<h3>Clients: <span data-bind="text: clients().length">&#x2014;</span></h3>
-	</div>
+
 
 @EndSection
 
@@ -14,47 +19,9 @@
 	<script type="text/javascript">
 	// <!--[CDATA[
 
-	$(function() {
-		ko.applyBindings(new DashboardViewModel());
-	});
 
-	function DeviceModel(data) {
-		var self = this
-
-		self.name = data.Name;
-		self.createdAt = data.CreatedAt;
-		self.lastModifiedAt = data.LastModifiedAt;
-	};
-
-	function ClientModel(data) {
-		var self = this
-
-		self.name = data.Name;
-		self.createdAt = data.CreatedAt;
-		self.lastModifiedAt = data.LastModifiedAt;
-	};
-
-	function DashboardViewModel() {
-		var self = this;
-
-		self.clients = ko.observableArray();
-		self.devices = ko.observableArray();
-
-		$.getJSON("/api/devices", function (response) {
-			var mapped = $.map(response, function (device) {
-				return new DeviceModel(device);
-			});
-			self.devices(mapped);
-		});
-
-		$.getJSON("/api/clients", function (response) {
-			var mapped = $.map(response, function (client) {
-				return new ClientModel(client);
-			});
-			self.clients(mapped);
-		});
-	};
 
 	// ]]-->
 	</script>
+
 @EndSection

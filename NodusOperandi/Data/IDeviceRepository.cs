@@ -42,6 +42,14 @@ namespace NodusOperandi.Data
         /// <returns>An <see cref="IEnumerable{T}"/>, of <see cref="DeviceModel"/> instances.</returns>
         IEnumerable<DeviceModel> GetAll();
 
+        /// <summary>
+        /// Gets a device from the database by its manufacturer and serial number
+        /// </summary>
+        /// <param name="manufacturer">The name of the manufacturer.</param>
+        /// <param name="serialNumber">The serial number of the device.</param>
+        /// <returns>A <see cref="DeviceModel"/> instance, or null.</returns>
+        DeviceModel GetByManufacturerAndSerialNumber(string manufacturer, string serialNumber);
+
     }
 
 }

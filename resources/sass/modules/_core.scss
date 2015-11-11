@@ -3,145 +3,24 @@
  */
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family:'Lato',sans-serif;
     font-weight:300;
 }
 
-h1 {
-    font-size:24px;
-    padding:0;
-    margin:0;
+strong {
+    font-weight:900;
+}
+
+.text-right {
+    text-align:right;
 }
 
 @media (min-width:768px) {
-    a.navbar-brand {
-        background:#e2e2e2 url('/Content/images/icon.png') no-repeat center center;
-        display:block;
-        width:120px;
-        padding-left:56px;
-        span {
+    .container-login {
+        .panel-login {
             display:block;
-            width:1px;
-            text-indent:-30000px;
-            overflow:hidden;
+            width:450px;
+            margin:100px auto;
         }
-    }
-
-    nav.navbar.navbar-default {
-        border-radius:0;
-        box-shadow:none;
-        -webkit-box-shadow:none;
-        background:#e2e2e2;
-    }
-
-    nav.left-nav {
-        background:#f2f2f2;
-        box-shadow:none;
-        -webkit-box-shadow:none;
-        width:120px;
-        position:fixed;
-        left:0;
-        top:54px;
-        bottom:0;
-        ul {
-            list-style:none;
-            padding:0;
-            margin:0;
-            li {
-                padding:0;
-                margin:0;
-                a {
-                    display:block;
-                    padding:10px 16px;
-                    cursor:pointer;
-                    white-space:nowrap;
-                    &:hover {
-                        background:#e2e2e2;
-                        text-decoration:none;
-                    }
-                    .nav-icon-container {
-                        display:inline-block;
-                        text-align:center;
-                        width:20px;
-                        span {
-                            display:inline-block;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    section.main-pane {
-        display:block;
-        position:fixed;
-        top:54px;
-        left:120px;
-        bottom:0;
-        right:0;
-        overflow:auto;
-        padding:16px;
-    }
-
-    div.login-wrapper {
-        margin-top:100px;
-        .panel {
-            background:#f8f8f8;
-        }
-    }
-}
-
-.padding {
-    padding:10px 15px;
-}
-.margin {
-    margin:16px 0;
-}
-
-.alert.alert-thinner {
-    padding:9px 30px 9px 15px;
-    border:none;
-    ul,
-    li {
-        padding:0;
-        margin:0;
-        list-style:none;
-    }
-}
-
-.status.off,
-.status.disabled {
-    color:#c00;
-    font-weight:900;
-}
-.status.disconnected {
-    color:#777;
-    font-weight:900;
-}
-.status.on,
-.status.connected {
-    color:#0c0;
-    font-weight:900;
-}
-.status.unknown {
-    color:#ee0;
-    font-weight:900;
-}
-.status.orphaned {
-    color:#00c;
-    font-weight:900;
-}
-
-table.table > thead > tr > th,
-table.table > thead > tr > td,
-table.table > tbody > tr > th,
-table.table > tbody > tr > td,
-table.table > tfoot > tr > th,
-table.table > tfoot > tr > td {
-    vertical-align:middle;
-    padding:4px 8px;
-    &.actions > button.btn {
-        display:inline-block;
-        vertical-align:middle;
     }
 }

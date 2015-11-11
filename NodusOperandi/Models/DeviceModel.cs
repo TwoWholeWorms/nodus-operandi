@@ -21,9 +21,29 @@ namespace NodusOperandi.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the manufacturer of the device
+        /// </summary>
+        public string Manufacturer { get; set; }
+
+        /// <summary>
+        /// Gets or sets the model of the device
+        /// </summary>
+        public string Model { get; set; }
+
+        /// <summary>
+        /// Gets or sets the firmware version of the device
+        /// </summary>
+        public string FirmwareVersion { get; set; }
+
+        /// <summary>
+        /// Gets or sets the serial number of the device
+        /// </summary>
+        public string SerialNumber { get; set; }
+
+        /// <summary>
         /// Gets or sets the MAC address of the device
         /// </summary>
-        public string macAddress { get; set; }
+        public string MacAddress { get; set; }
 
         /// <summary>
         /// Gets or sets the IPv4 address of the device

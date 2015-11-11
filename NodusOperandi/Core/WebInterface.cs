@@ -5,6 +5,7 @@
     using Nancy.Hosting.Self;
     using NLog;
     using System;
+    using System.Threading;
 
     public class WebInterface
     {
@@ -28,8 +29,7 @@
             using (host = new NancyHost(new Uri(Configuration.NancyNamespace))) {
                 host.Start();
                 while (true) {
-                    string line = Console.ReadLine();
-                    logger.Debug("Command: " + line);
+                    Thread.Sleep(60000);
                 }
             }
         }

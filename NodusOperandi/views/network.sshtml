@@ -1,23 +1,110 @@
 ﻿@Master['master']
 
+@Section['ContentHeader']
+	 Network infrastructure <small>Control panel</small>
+@EndSection
+
+@Section['ContentTitle']
+	 Network infrastructure
+@EndSection
+
 @Section['Content']
 
-	<div data-bind="foreach: devices, visible: devices().length, masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
-		<div data-bind="visible: isActive && !isDeleted" class="widget">
+    <h1>Network infrastructure</h1>
+    <div class="btn-group btn-group-sm margin" role="group">
+        <button type="button" class="btn btn-default active">All</button>
+        <button type="button" class="btn btn-default">Access points</button>
+        <button type="button" class="btn btn-default">Firewalls</button>
+        <button type="button" class="btn btn-default">Power outlets</button>
+        <button type="button" class="btn btn-default">Sensors</button>
+        <button type="button" class="btn btn-default">Switches</button>
+        <button type="button" class="btn btn-default">VoIP phones</button>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>&#xa0;</th>
+                <th>Device</th>
+                <th>MAC</th>
+                <th>IP</th>
+                <th>Status</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Firmware</th>
+                <th>Uptime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="10">&#xa0;</td>
+            </tr>
+        </tfoot>
+        <tbody data-bind="visible: !devices().length">
+        	<tr>
+        		<td colspan="10">There are no devices currently registered on the network.</td>
+        	</tr>
+        </tbody>
+        <tbody data-bind="foreach: devices, visible: devices().length">
+			<tr data-bind="masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+                <td><span class="fa fa-wifi"></span></td>
+                <td><a href="#" data-bind="text: name"></a></td>
+                <td data-bind="text: macAddress"></td>
+                <td data-bind="text: (ipv6Address ? ipv6Address : ipv4Address)"></td>
+                <td><span class="status connected" data-bind="text: status"></span></td>
+                <td data-bind="text: manufacturer"></td>
+                <td data-bind="text: model"></td>
+                <td data-bind="text: firmwareVersion"></td>
+                <td data-bind="text: uptime"></td>
+                <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button></td>
+			</tr>
+		</tbody>
+	</table>
 
-			<div class="content">
-				<div class="list-head clearfix">
-					<h3>
-						<a href='#' data-bind="attr: { href: url }, text: name"></a>
-					</h3>
-				</div>
-
-			</div>
-		</div>
-	</div>
 @EndSection
 
 @Section['Scripts']
 
+	<script type="text/javascript">
+	// <!--[CDATA[
+
+	$(function() {
+		ko.applyBindings(new NetworkViewModel());
+	});
+
+	function DeviceModel(data) {
+		var self = this
+
+		self.name = data.name;
+		self.createdAt = data.createdAt;
+		self.lastModifiedAt = data.lastModifiedAt;
+		self.isActive = data.isActive;
+		self.isDeleted = data.isDeleted;
+		self.macAddress = data.macAddress;
+		self.ipv4Address = data.ipv4Address;
+		self.ipv6Address = data.ipv6Address;
+		self.manufacturer = data.manufacturer;
+		self.model = data.model;
+		self.firmwareVersion = data.firmwareVersion;
+		self.uptime = data.uptime;
+		self.status = data.status;
+		self.serialNumber = data.serialNumber;
+	};
+
+	function NetworkViewModel() {
+		var self = this;
+
+		self.devices = ko.observableArray();
+
+		$.getJSON("/api/devices", function (response) {
+			var mapped = $.map(response, function (device) {
+				return new DeviceModel(device);
+			});
+			self.devices(mapped);
+		});
+	};
+
+	// ]]-->
+	</script>
 
 @EndSection

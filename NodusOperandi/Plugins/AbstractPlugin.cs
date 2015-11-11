@@ -1,11 +1,14 @@
-﻿using System;
-
-namespace NodusOperandi.Plugins
+﻿namespace NodusOperandi.Plugins
 {
+    
+    using System;
     
     abstract public class AbstractPlugin
     {
         
+        abstract public string Name { get; }
+        abstract public void RegisterPlugin();
+
     }
 
 }

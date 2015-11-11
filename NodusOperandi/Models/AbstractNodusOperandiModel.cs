@@ -8,8 +8,8 @@ namespace NodusOperandi.Models
     using System;
     using System.Collections.Generic;
     using Data;
+    using MongoDB.Bson;
     using MongoDB.Bson.Serialization.Attributes;
-    using MongoDB.Bson.Serialization.IdGenerators;
 
     /// <summary>
     /// Stores information about a NodusOperandi entity.
@@ -20,7 +20,7 @@ namespace NodusOperandi.Models
         /// <summary>
         /// Gets or sets the ID of the entity.
         /// </summary>
-        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
+        [BsonRepresentation(BsonType.ObjectId)] 
         public string Id { get; set; }
 
         /// <summary>
@@ -36,12 +36,12 @@ namespace NodusOperandi.Models
         /// <summary>
         /// Gets or sets whether the entity is active in the system.
         /// </summary>
-        public string IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         /// <summary>
         /// Gets or sets whether the entity is deleted in the system. (We [almost] never hard-delete actual data, only soft-delete it.)
         /// </summary>
-        public string IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
     
     }
 
