@@ -27,23 +27,91 @@
 	function ClientModel(data) {
 		var self = this
 
-		self.name = data.Name;
-		self.createdAt = data.CreatedAt;
-		self.lastModifiedAt = data.LastModifiedAt;
+		self.name = data.name;
+		self.hostname = data.hostname;
+		self.ipv4Address = data.ipv4Address;
+		self.ipv6Address = data.ipv6Address;
+		self.macAddress = formatMacAddress(data.macAddress);
+		self.downstreamData = 12.0142;
+		self.upstreamData = 7.2639;
+		self.uptimeStartedAt = data.uptimeStartedAt;
+		self.createdAt = data.createdAt;
+		self.lastModifiedAt = data.lastModifiedAt;
+		self.isActive = data.isActive;
+		self.isDeleted = data.isDeleted;
+		self.lastPingStatus = data.lastPingStatus;
+		self.lastPingStatusText = (0 == data.lastPingStatus ? 'Up' : 'Down');
+
+		self.uptime = stringifyUptime(data.uptimeStartedAt);
 	};
 
+	var updateDataTimer = null;
+	var model = null;
 	function ClientsViewModel() {
-		var self = this;
+		model = this;
 
-		self.clients = ko.observableArray();
+		model.clients = ko.observableArray();
 
+		updateData();
+	};
+
+	function updateData() {
+		if (updateDataTimer) {
+			clearTimeout(updateDataTimer);
+		}
 		$.getJSON("/api/clients", function (response) {
 			var mapped = $.map(response, function (client) {
+				if (client.isDeleted || !client.isActive) return null;
+
 				return new ClientModel(client);
 			});
-			self.clients(mapped);
+			mapped.sort(function(a, b){
+				if (a.ipv4Address < b.ipv4Address) {
+					return -1;
+				}
+				if (a.ipv4Address > b.ipv4Address) {
+					return 1;
+				}
+				return 0;
+			});
+			model.clients(mapped);
+			updateDataTimer = setTimeout(updateData, 10000);
 		});
-	};
+	}
+
+	function formatMacAddress(mac) {
+		var bits = mac.split(/:/);
+		for (var i = 0; i < bits.length; i++) {
+			bits[i] = ('00' + bits[i]).slice(-2);
+		}
+		return bits.join(':').toUpperCase();
+	}
+
+	function stringifyUptime(fromDate) {
+		var then = (new Date(fromDate)).getTime() / 1000;
+		var now = (new Date()).getTime() / 1000;
+		var t = now - then;
+
+		var tokens = {
+			year:31536000,
+			month:2592000,
+			week:604800,
+			day:86400,
+			hour:3600,
+			minute:60,
+			second:1
+		};
+
+		var bits = [];
+		for (var type in tokens) {
+			if (t < tokens[type]) continue;
+
+			var numberOfUnits = Math.floor(t / tokens[type]);
+			bits.push(numberOfUnits + ' ' + type + (numberOfUnits != 1 ? 's' : ''));
+			t -= numberOfUnits * tokens[type];
+		}
+		return bits.join(' ');
+	}
 
 	// ]]-->
 	</script>
@@ -67,15 +135,15 @@
         <tr>
             <th>&#xa0;</th>
             <th>Client</th>
-            <th>MAC</th>
             <th>IP</th>
+            <th>MAC</th>
             <th>Manufacturer</th>
             <th>Device</th>
             <th>Access point</th>
             <th><i class="fa fa-download"></i></th>
             <th><i class="fa fa-upload"></i></th>
             <th>Activity</th>
-            <th>Uptime</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -89,19 +157,19 @@
     		<td colspan="10">There are no devices currently registered on the network.</td>
     	</tr>
     </tbody>
-    <tbody data-bind="visible: clients().length">
-		<tr data-bind="foreach: clients, visible: isActive &amp;&amp; !isDeleted, masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+    <tbody data-bind="visible: clients().length, foreach: clients, ellipsis: true">
+		<tr>
             <td><span class="fa fa-wifi"></span></td>
-            <td><a href="#" data-bind="text: name"></a></td>
+            <td><a href="#" data-bind="text: (name ? name : hostname)"></a></td>
+            <td data-bind="text: (ipv4Address ? ipv4Address : '') + (ipv4Address &amp;&amp; ipv6Address ? ' ' : '') + (ipv6Address ? ipv6Address : '')"></td>
             <td data-bind="text: macAddress"></td>
-            <td data-bind="text: ipv4Address + ' ' + ipv6Address"></td>
-            <td data-bind="text: manufacturer"></td>
-            <td data-bind="text: model"></td>
-            <td><a href="#" data-bind="text: accessPoint.name"></a></td>
+            <td>&#x2014;</td>
+            <td>&#x2014;</td>
+            <td><a href="#">&#x2014;</a></td>
             <td data-bind="text: downstreamData"></td>
             <td data-bind="text: upstreamData"></td>
             <td class="activity-bar"><i class="fa fa-stop"></i> <i class="fa fa-stop"></i> <i class="fa fa-stop"></i> <i class="fa fa-stop"></i></td>
-            <td data-bind="text: uptime"></td>
+            <td><div data-bind="text: lastPingStatusText"></div><div data-bind="visible: lastPingStatus == 0, text: uptime"></div></td>
             <td class="actions"><button class="btn btn-danger"><span class="fa fa-times"></span> Block</button> <button class="btn btn-warning"><span class="fa fa-refresh"></span> Reconnect</button></td>
 		</tr>
 	</tbody>

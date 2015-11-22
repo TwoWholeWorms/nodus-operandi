@@ -1,6 +1,7 @@
 ﻿/**
  * Based on Nancy.Demo.Samples.Models.DemoModel by Andreas Håkansson
  */
+using System.Net.NetworkInformation;
 
 namespace NodusOperandi.Models
 {
@@ -54,6 +55,21 @@ namespace NodusOperandi.Models
         /// Gets or sets the IPv6 address of the device
         /// </summary>
         public string Ipv6Address { get; set; }
+
+        /// <summary>
+        /// Gets or sets when the entity was last seen on the network
+        /// </summary>
+        public DateTime LastSeenAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets the timestamp from which to calculate the device's uptime
+        /// </summary>
+        public DateTime? UptimeStartedAt { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last ping status of the device
+        /// </summary>
+        public IPStatus LastPingStatus { get; set; }
 
     }
 

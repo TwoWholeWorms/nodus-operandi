@@ -1,29 +1,32 @@
 ﻿namespace NodusOperandi.Core
 {
-    
+
     using NLog;
     using System;
     using System.Threading;
     using Plugins;
-    
+    using Plugins.Core;
+
     public class Controller
     {
 
         readonly static Logger logger = LogManager.GetCurrentClassLogger();
-        
+
         public Controller()
         {
-            
+            // TODO: Unhorrible this
+            PluginManager.AddPlugin(new DiscoverClientsPlugin());
         }
 
         public void Run()
         {
             var detectNewDevicesThread = new Thread(DoDetectNewDevices);
             detectNewDevicesThread.Start();
-            
+
             var heartbeatsThread = new Thread(DoHeartbeats);
             heartbeatsThread.Start();
 
+            // There must be a nicer way to do this? >.<
             while (true) {
                 Thread.Sleep(60000);
             }
@@ -45,7 +48,7 @@
                         logger.Error(e);
                     }
                 }
-                Thread.Sleep(60000);
+                Thread.Sleep(10000);
             }
         }
 
@@ -65,7 +68,7 @@
                         logger.Error(e);
                     }
                 }
-                Thread.Sleep(60000);
+                Thread.Sleep(10000);
             }
         }
 

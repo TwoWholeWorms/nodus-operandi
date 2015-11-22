@@ -8,33 +8,33 @@
     public class Devices : NancyModule
     {
 
-        public Devices(IDeviceModelFactory deviceModelFactory, IDeviceRepository deviceRepository)
+        public Devices(IDeviceModelFactory deviceModelFactory, IDeviceRepository deviceRepo)
         {
             this.RequiresAuthentication();
 
             Get["/devices"] = parameters =>
             {
-                deviceRepository.GetAll();
+                deviceRepo.GetAll();
 
                 return View["Devices"];
             };
             
             Delete["/devices/{id}"] = parameters =>
             {
-                deviceRepository.DeleteById((string)parameters.id);
+                deviceRepo.DeleteById((string)parameters.id);
 
                 return Response.AsRedirect("~/devices");
             };
 
             Post["/devices/refresh"] = parameters =>
             {
-                var model = deviceRepository.GetAll();
+                var model = deviceRepo.GetAll();
 
-                deviceRepository.DeleteAll();
+                deviceRepo.DeleteAll();
 
                 var devices = deviceModelFactory.Discover();
                 foreach (var device in devices) {
-                    deviceRepository.Persist(device);
+                    deviceRepo.Persist(device);
                 }
 
                 return Response.AsRedirect("~/devices");

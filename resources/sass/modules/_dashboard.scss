@@ -1,3 +1,27 @@
 /**
  * NodusOperandi dashboard
  */
+
+.small-box {
+    min-height:115px;
+    .inner {
+        p:first-child {
+            margin-top:5px;
+            z-index:5;
+        }
+    }
+    &.tiny {
+        min-height:60px;
+        .inner {
+            p:first-child {
+                margin-top:10px;
+            }
+        }
+        .icon {
+            font-size:55px;
+            &:hover {
+                font-size:55px;
+            }
+        }
+    }
+}

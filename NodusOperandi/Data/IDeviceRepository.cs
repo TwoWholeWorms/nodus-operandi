@@ -50,6 +50,9 @@ namespace NodusOperandi.Data
         /// <returns>A <see cref="DeviceModel"/> instance, or null.</returns>
         DeviceModel GetByManufacturerAndSerialNumber(string manufacturer, string serialNumber);
 
+        long GetConnectedCount();
+        IEnumerable<DeviceModel> GetConnected(bool goByUptime);
+
     }
 
 }

@@ -14,9 +14,6 @@
 
             Get["/"] = parameters =>
             {
-                clientRepository.GetAll();
-                deviceRepository.GetAll();
-
                 return View["Dashboard"];
             };
 

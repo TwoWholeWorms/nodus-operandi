@@ -1,6 +1,7 @@
 ﻿/**
  * Based on Nancy.Demo.Samples.Data.MongoDbDemoRepository by Andreas Håkansson
  */
+using System.Net.NetworkInformation;
 
 namespace NodusOperandi.Data
 {
@@ -25,7 +26,7 @@ namespace NodusOperandi.Data
         /// <param name="database">The <see cref="MongoDatabase"/> instance that should be used by the repository.</param>
         public MongoDbDeviceRepository(MongoDatabase database)
         {
-            this.collection = database.GetCollection<DeviceModel>(Configuration.DatabaseName);
+            this.collection = database.GetCollection<DeviceModel>("NodusOperandiDevices");
         }
 
         /// <summary>
@@ -70,17 +71,37 @@ namespace NodusOperandi.Data
 
         public DeviceModel GetByMacAddress(string macAddress)
         {
-            throw new System.NotImplementedException();
+            return this.collection.FindOne(Query<DeviceModel>.Where(device => device.MacAddress == macAddress));
         }
 
         public DeviceModel GetByIpv4Address(string ipv4Address)
         {
-            throw new System.NotImplementedException();
+            return this.collection.FindOne(Query<DeviceModel>.Where(device => device.Ipv4Address == ipv4Address));
         }
 
         public DeviceModel GetByIpv6Address(string ipv6Address)
         {
-            throw new System.NotImplementedException();
+            return this.collection.FindOne(Query<DeviceModel>.Where(device => device.Ipv6Address == ipv6Address));
+        }
+
+        /// <summary>
+        /// Gets the number of connected devices
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/>, of <see cref="DeviceModel"/> instances.</returns>
+        public long GetConnectedCount()
+        {
+            return this.collection.Find(Query<DeviceModel>.Where(device => device.IsActive && !device.IsDeleted)).Count();
+        }
+
+        /// <summary>
+        /// Gets the number of connected clients
+        /// </summary>
+        /// <returns>An <see cref="IEnumerable{T}"/>, of <see cref="DeviceModel"/> instances.</returns>
+        public IEnumerable<DeviceModel> GetConnected(bool goByUptime)
+        {
+            return goByUptime
+                    ? this.collection.Find(Query<DeviceModel>.Where(device => device.IsActive && !device.IsDeleted && device.UptimeStartedAt != null))
+                    : this.collection.Find(Query<DeviceModel>.Where(device => device.IsActive && !device.IsDeleted && device.LastPingStatus == IPStatus.Success));
         }
 
     }

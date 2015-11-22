@@ -21,6 +21,9 @@ namespace NodusOperandi.Data
         /// <returns>An <see cref="IEnumerable{T}"/>, of <see cref="ClientModel"/> instances.</returns>
         IEnumerable<ClientModel> GetAll();
 
+        long GetConnectedCount();
+        IEnumerable<ClientModel> GetConnected(bool goByUptime);
+
     }
 
 }

@@ -19,10 +19,240 @@
 	<script type="text/javascript">
 	// <!--[CDATA[
 
+	$(function() {
+		ko.applyBindings(new DashboardViewModel());
+	});
 
+	var updateDataTimer = null;
+	var model = null;
+	function DashboardViewModel() {
+		model = this;
+
+		model.numConnectedClients = ko.observable();
+		model.numConnectedDevices = ko.observable();
+
+		updateData();
+	};
+
+	function updateData() {
+		if (updateDataTimer) {
+			clearTimeout(updateDataTimer);
+		}
+		$.getJSON("/api/dashboard", function (response) {
+			model.numConnectedClients(response.numConnectedClients);
+			model.numConnectedDevices(response.numConnectedDevices);
+			updateDataTimer = setTimeout(updateData, 10000);
+		});
+	}
 
 	// ]]-->
 	</script>
 }
 
-<p>Dashboard content will go here.</p>
+<!-- Small boxes (Stat box) -->
+<div class="row">
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-aqua">
+			<div class="inner">
+				<h3>14.2 / 7.1</h3>
+				<p>Network activity MB/sec</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-download"></i>
+			</div>
+		</div>
+	</div><!-- /.col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-green">
+			<div class="inner">
+				<h3 data-bind="text: numConnectedClients"></h3>
+				<p>Network clients</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-users"></i>
+			</div>
+		</div>
+	</div><!-- /.col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-yellow">
+			<div class="inner">
+				<h3>5.23 A</h3>
+				<p>Power usage</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-bolt"></i>
+			</div>
+		</div>
+	</div><!-- /.col -->
+	<div class="col-lg-3 col-xs-6">
+		<!-- small box -->
+		<div class="small-box bg-red">
+			<div class="inner">
+				<h3>23.12 W</h3>
+				<p>Turn off <strong>4</strong> lights</p>
+			</div>
+			<div class="icon">
+				<i class="fa fa-lightbulb-o"></i>
+			</div>
+		</div>
+	</div><!-- /.col -->
+</div><!-- /.row -->
+<div class="row">
+	<section class="col-lg-6 connectedSortable">
+		<!-- Network activity box -->
+		<div class="box box-primary">
+			<div class="box-header">
+				<i class="fa fa-line-chart"></i>
+				<h3 class="box-title">Network activity</h3>
+			</div>
+			<div class="box-body">
+				<div id="network_activity_graph"></div>
+			</div><!-- /.box-body-->
+		</div><!-- /.box -->
+		<!-- Power usage box -->
+		<div class="box box-warning">
+			<div class="box-header">
+				<i class="fa fa-line-chart"></i>
+				<h3 class="box-title">Power usage</h3>
+			</div>
+			<div class="box-body">
+				<div id="power_usage_graph"></div>
+			</div><!-- /.box-body-->
+		</div><!-- /.box -->
+	</section>
+	<section class="col-lg-6 connectedSortable">
+		<!-- Light switches box -->
+		<div class="box box-danger">
+			<div class="box-header">
+				<i class="fa fa-lightbulb-o"></i>
+				<h3 class="box-title">Lighting controls</h3>
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Terrace</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-green">
+							<div class="inner">
+								<p>Office desk</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Office door</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+				</div><!-- ./row -->
+				<div class="row">
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Media centre</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Living room</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Dining room</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+				</div><!-- ./row -->
+				<div class="row">
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Master bedroom</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Second bedroom</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-lg-4 col-xs-4">
+						<!-- small box -->
+						<div class="small-box tiny bg-gray">
+							<div class="inner">
+								<p>Spare bedroom</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-lightbulb-o"></i>
+							</div>
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.box-body-->
+			<div class="box-footer no-border">
+				<div class="row">
+					<div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+						<div id="sparkline-1"></div>
+						<div class="knob-label">Power usage</div>
+					</div><!-- /.col -->
+					<div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+						<div id="sparkline-2"></div>
+						<div class="knob-label">Switched on</div>
+					</div><!-- /.col -->
+					<div class="col-xs-4 text-center">
+						<div id="sparkline-3"></div>
+						<div class="knob-label">Thing 3</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div>
+		</div><!-- /.box -->
+	</section>
+</div><!-- /.row -->

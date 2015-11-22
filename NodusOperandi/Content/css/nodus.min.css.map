@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAIA,IAAK,CACD,WAAW,CAAC,iBAAiB,CAC7B,WAAW,CAAC,GAAG,CAGnB,MAAO,CACH,WAAW,CAAC,GAAG,CAGnB,WAAY,CACR,UAAU,CAAC,KAAK,CAGpB,yBAAyB,CAEjB,6BAAa,CACT,OAAO,CAAC,KAAK,CACb,KAAK,CAAC,KAAK,CACX,MAAM,CAAC,UAAU,EClB7B,eAAgB,CACZ,KAAK,CAAC,IAAI",
-"sources": ["../../../resources/sass/modules/_core.scss","../../../resources/sass/modules/_clients.scss"],
+"mappings": "AAIA,IAAK,CACD,WAAW,CAAC,iBAAiB,CAC7B,WAAW,CAAC,GAAG,CAGnB,MAAO,CACH,WAAW,CAAC,GAAG,CAGnB,WAAY,CACR,UAAU,CAAC,KAAK,CAGpB,yBAAyB,CAEjB,6BAAa,CACT,OAAO,CAAC,KAAK,CACb,KAAK,CAAC,KAAK,CACX,MAAM,CAAC,UAAU,EClB7B,UAAW,CACP,UAAU,CAAC,KAAK,CAEZ,+BAAc,CACV,UAAU,CAAC,GAAG,CACd,OAAO,CAAC,CAAC,CAGjB,eAAO,CACH,UAAU,CAAC,IAAI,CAEX,oCAAc,CACV,UAAU,CAAC,IAAI,CAGvB,qBAAM,CACF,SAAS,CAAC,IAAI,CACd,2BAAQ,CACJ,SAAS,CAAC,IAAI,CClB9B,eAAgB,CACZ,KAAK,CAAC,IAAI",
+"sources": ["../../../resources/sass/modules/_core.scss","../../../resources/sass/modules/_dashboard.scss","../../../resources/sass/modules/_clients.scss"],
 "names": [],
 "file": "nodus.min.css"
 }
