@@ -8,14 +8,12 @@
     public class Statistics : NancyModule
     {
 
-        public Statistics(IStatisticsModelFactory statisticsModelFactory, IStatisticsRepository statisticsRepository)
+        public Statistics()
         {
             this.RequiresAuthentication();
 
             Get["/statistics"] = parameters =>
             {
-                statisticsRepository.GetAll();
-
                 return View["Statistics"];
             };
 

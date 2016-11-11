@@ -1,8 +1,6 @@
 ﻿namespace NodusOperandi.Plugins
 {
-    
-    using System;
-    
+
     abstract public class AbstractPlugin
     {
         
@@ -12,4 +10,3 @@
     }
 
 }
-

@@ -4,7 +4,6 @@
     using NLog;
     using System;
     using System.Threading;
-    using Plugins;
     using Plugins.Core;
 
     public class Controller
@@ -20,15 +19,15 @@
 
         public void Run()
         {
-            var detectNewDevicesThread = new Thread(DoDetectNewDevices);
-            detectNewDevicesThread.Start();
+            var detectNewDevicesThread = new Thread (DoDetectNewDevices);
+            detectNewDevicesThread.Start ();
 
-            var heartbeatsThread = new Thread(DoHeartbeats);
-            heartbeatsThread.Start();
+            var heartbeatsThread = new Thread (DoHeartbeats);
+            heartbeatsThread.Start ();
 
             // There must be a nicer way to do this? >.<
             while (true) {
-                Thread.Sleep(60000);
+                Thread.Sleep (60000);
             }
         }
 

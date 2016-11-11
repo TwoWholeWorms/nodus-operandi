@@ -8,14 +8,12 @@
     public class Settings : NancyModule
     {
 
-        public Settings(ISettingModelFactory settingModelFactory, ISettingRepository settingRepository)
+        public Settings()
         {
             this.RequiresAuthentication();
 
             Get["/settings"] = parameters =>
             {
-                settingRepository.GetAll();
-
                 return View["Settings"];
             };
 

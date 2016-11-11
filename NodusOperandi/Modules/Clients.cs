@@ -8,7 +8,7 @@
     public class Clients : NancyModule
     {
 
-        public Clients(IClientModelFactory clientModelFactory, IClientRepository clientRepo)
+        public Clients()
         {
             this.RequiresAuthentication();
 
@@ -19,21 +19,21 @@
             
             Delete["/clients/{id}"] = parameters =>
             {
-                clientRepo.DeleteById((string)parameters.id);
+                //clientRepo.DeleteById((string)parameters.id);
 
                 return Response.AsRedirect("~/clients");
             };
 
             Post["/clients/refresh"] = parameters =>
             {
-                var model = clientRepo.GetAll();
+                //var model = clientRepo.GetAll();
 
-                clientRepo.DeleteAll();
+                //clientRepo.DeleteAll();
 
-                var clients = clientModelFactory.Discover();
-                foreach (var client in clients) {
-                    clientRepo.Persist(client);
-                }
+                //var clients = clientModelFactory.Discover();
+                //foreach (var client in clients) {
+                //    clientRepo.Persist(client);
+                //}
 
                 return Response.AsRedirect("~/clients");
             };

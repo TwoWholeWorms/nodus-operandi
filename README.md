@@ -5,6 +5,8 @@ comprising devices from differing manufacturers to make them interoperable and f
 ## To-Do list
 [X] Core NancyFx code
 [ ] Dashboard (sort of done)
+[ ] Implement SQLite database storage
+[ ] Implement EF6 and replace SQLite with it (Need to work out runtime issues w/ SQLite and EF6 first, though)
 [ ] List active devices / IPs on the network
 [ ] Multiple user support
 [ ] Module permissions
@@ -13,3 +15,8 @@ comprising devices from differing manufacturers to make them interoperable and f
 [ ] IFTTT API integration and similar
 [ ] Sensor input triggers (eg, sensor value < X, power usage > X, movement detected here, door open there, etc)
 [ ] Security audit panel (do a scan of all network devices to see what's running what)
+
+### Panel tables
+[ ] Consolidate table rendering code into one place
+[ ] Implement plugin API / delegates on table renderer to allow plugins to register action buttons (eg, the toggle outlet buttons for the Ubiquiti mFi hardware)
+

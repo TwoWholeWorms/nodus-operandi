@@ -28,7 +28,9 @@
 	function DeviceModel(data) {
 		var self = this
 
-		self.name = data.name;
+		self.id = data.id;
+	    self.name = data.name;
+		self.icon = data.icon;
 		self.createdAt = data.createdAt;
 		self.lastModifiedAt = data.lastModifiedAt;
 		self.isActive = data.isActive;
@@ -49,8 +51,8 @@
 
 		self.devices = ko.observableArray();
 
-		$.getJSON("/api/devices", function (response) {
-			var mapped = $.map(response, function (device) {
+		$.getJSON("/api/device", function (response) {
+			var mapped = $.map(response.devices, function (device) {
 				return new DeviceModel(device);
 			});
 			self.devices(mapped);
@@ -88,17 +90,17 @@
     </tfoot>
     <tbody data-bind="visible: !devices().length">
     	<tr>
-    		<td colspan="5">There are no smart-controllable devices currently registered on the network.</td>
+    		<td colspan="6">There are no smart-controllable devices currently registered on the network.</td>
     	</tr>
     </tbody>
     <tbody data-bind="foreach: devices, visible: devices().length">
-		<tr data-bind="masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
-            <td><span class="fa fa-television"></span></td>
+		<tr>
+            <td><span data-bind="css: (icon ? icon : 'fa fa-cube')"></span></td>
             <td data-bind="text: name"></td>
             <td>&#x2014;</td>
             <td><span class="status off">Off</span></td>
             <td data-bind="text: uptime"></td>
-            <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> <button class="btn btn-success"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled"><span class="fa fa-power-off"></span> Switch OFF</button></td>
+            <td class="actions"><!-- <button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button> --><button class="btn btn-success" data-bind="attr: { 'data-deviceid': id }" data-action-trigger data-action="UbiquitiMfiHardware:MfiPowerStrip:SwitchOn"><span class="fa fa-power-off"></span> Switch ON</button> <button class="btn btn-danger" disabled="disabled" data-bind="attr: { 'data-deviceid': id }" data-action-trigger data-action="UbiquitiMfiHardware:MfiPowerStrip:SwitchOff"><span class="fa fa-power-off"></span> Switch OFF</button></td>
         </tr>
     </tbody>
 </table>

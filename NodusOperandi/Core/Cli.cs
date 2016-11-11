@@ -18,11 +18,11 @@
 
         public void Run()
         {
-            while (true) {
-                string line = Console.ReadLine();
-                // So, this is where the CLI command processor /will/ go
-                logger.Debug("Command: " + line);
-            }
+            //while (true) {
+            //    string line = Console.ReadLine();
+            //    // So, this is where the CLI command processor /will/ go
+            //    logger.Debug("Command: " + line);
+            //}
         }
 
     }

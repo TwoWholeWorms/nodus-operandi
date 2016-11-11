@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodusOperandi", "NodusOperandi.csproj", "{9FC6FF79-3AEA-4F4B-BB5C-30200E9B0200}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiquitiNetworkHardware", "..\Plugins\UbiquitiNetworkHardware\UbiquitiNetworkHardware.csproj", "{6805C356-5B22-4F26-961B-BA58A15BA6C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiquitiMfiHardware", "..\Plugins\UbiquitiMfiHardware\UbiquitiMfiHardware.csproj", "{6805C356-5B22-4F26-961B-BA58A15BA6A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiquitiUnifiHardware", "..\Plugins\UbiquitiUnifiHardware\UbiquitiUnifiHardware.csproj", "{6805C356-5B22-4F26-961B-BA58A15BA6C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +13,17 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Debug|x86.Build.0 = Debug|Any CPU
-		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Release|x86.ActiveCfg = Release|Any CPU
-		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Release|x86.Build.0 = Release|Any CPU
 		{9FC6FF79-3AEA-4F4B-BB5C-30200E9B0200}.Debug|x86.ActiveCfg = Debug|x86
 		{9FC6FF79-3AEA-4F4B-BB5C-30200E9B0200}.Debug|x86.Build.0 = Debug|x86
 		{9FC6FF79-3AEA-4F4B-BB5C-30200E9B0200}.Release|x86.ActiveCfg = Release|x86
 		{9FC6FF79-3AEA-4F4B-BB5C-30200E9B0200}.Release|x86.Build.0 = Release|x86
+		{6805C356-5B22-4F26-961B-BA58A15BA6A4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6A4}.Debug|x86.Build.0 = Debug|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6A4}.Release|x86.ActiveCfg = Release|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6A4}.Release|x86.Build.0 = Release|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Debug|x86.Build.0 = Debug|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Release|x86.ActiveCfg = Release|Any CPU
+		{6805C356-5B22-4F26-961B-BA58A15BA6C9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

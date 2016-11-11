@@ -20,7 +20,7 @@
         }
 
         #region IDeviceModelFactory implementation
-        public IEnumerable<DeviceModel> Discover()
+        public IEnumerable<Device> Discover()
         {
             throw new NotImplementedException();
         }

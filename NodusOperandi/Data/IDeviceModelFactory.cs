@@ -13,8 +13,8 @@
         /// <summary>
         /// Discovers devices on the network
         /// </summary>
-        /// <returns>An <see cref="IEnumerable{T}"/>, containing <see cref="DeviceModel"/> instances.</returns>
-        IEnumerable<DeviceModel> Discover();
+        /// <returns>An <see cref="IEnumerable{T}"/>, containing <see cref="Device"/> instances.</returns>
+        IEnumerable<Device> Discover();
     
     }
 

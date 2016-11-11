@@ -8,14 +8,12 @@
     public class Events : NancyModule
     {
 
-        public Events(IDeviceModelFactory deviceModelFactory, IDeviceRepository deviceRepository)
+        public Events()
         {
             this.RequiresAuthentication();
 
             Get["/events"] = parameters =>
             {
-                deviceRepository.GetAll();
-
                 return View["Events"];
             };
 

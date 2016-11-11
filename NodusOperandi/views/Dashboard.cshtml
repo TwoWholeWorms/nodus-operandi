@@ -25,11 +25,13 @@
 
 	var updateDataTimer = null;
 	var model = null;
+	
 	function DashboardViewModel() {
 		model = this;
 
 		model.numConnectedClients = ko.observable();
-		model.numConnectedDevices = ko.observable();
+		model.numDevices = ko.observable();
+		model.numNetworks = ko.observable();
 
 		updateData();
 	};
@@ -38,9 +40,12 @@
 		if (updateDataTimer) {
 			clearTimeout(updateDataTimer);
 		}
+	
 		$.getJSON("/api/dashboard", function (response) {
 			model.numConnectedClients(response.numConnectedClients);
-			model.numConnectedDevices(response.numConnectedDevices);
+			model.numDevices(response.numDevices);
+			model.numNetworks(response.numNetworks);
+	
 			updateDataTimer = setTimeout(updateData, 10000);
 		});
 	}

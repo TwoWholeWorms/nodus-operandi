@@ -8,7 +8,7 @@
     public class Dashboard : NancyModule
     {
         
-        public Dashboard(IClientRepository clientRepository, IDeviceRepository deviceRepository)
+        public Dashboard()
         {
             this.RequiresAuthentication();
 

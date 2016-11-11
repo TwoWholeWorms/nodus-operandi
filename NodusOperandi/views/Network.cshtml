@@ -3,14 +3,14 @@
 }
 
 ﻿@section ContentTitle {
-	<h1>Network infrastructure <small>Control panel</small></h1>
+	<h1>Network configuration <small>Control panel</small></h1>
 }
 
 @section Breadcrumb {
 	<ol class="breadcrumb">
 	    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
 	    <li class="active">
-	        Network infrastructure
+	        Network configuration
 	    </li>
 	</ol>
 }
@@ -24,7 +24,7 @@
 		ko.applyBindings(new NetworkViewModel());
 	});
 
-	function DeviceModel(data) {
+	function NetworkModel(data) {
 		var self = this
 
 		self.name = data.name;
@@ -32,27 +32,27 @@
 		self.lastModifiedAt = data.lastModifiedAt;
 		self.isActive = data.isActive;
 		self.isDeleted = data.isDeleted;
-		self.macAddress = data.macAddress;
-		self.ipv4Address = data.ipv4Address;
-		self.ipv6Address = data.ipv6Address;
-		self.manufacturer = data.manufacturer;
-		self.model = data.model;
-		self.firmwareVersion = data.firmwareVersion;
-		self.uptime = data.uptime;
-		self.status = data.status;
-		self.serialNumber = data.serialNumber;
+		self.ipSubnet = data.ipSubnet;
+		self.type = self.type;
+		self.hasDhcp = data.hasDhcp;
+		self.dhcpStartAddress = data.dhcpStartAddress;
+		self.dhcpEndAddress = data.dhcpEndAddress;
+		self.wiFiSecurityLevel = data.wiFiSecurityLevel;
+		self.wiFiPassword = data.wiFiPassword;
+		self.hasGuestPortal = data.hasGuestPortal;
+		self.guestPortalAddress = data.guestPortalAddress;
 	};
 
 	function NetworkViewModel() {
 		var self = this;
 
-		self.devices = ko.observableArray();
+		self.networks = ko.observableArray();
 
-		$.getJSON("/api/devices", function (response) {
+		$.getJSON("/api/network", function (response) {
 			var mapped = $.map(response, function (device) {
-				return new DeviceModel(device);
+				return new NetworkModel(device);
 			});
-			self.devices(mapped);
+			self.networks(mapped);
 		});
 	};
 
@@ -63,50 +63,71 @@
 
 <div class="btn-group btn-group-sm margin" role="group">
     <button type="button" class="btn btn-default active">All</button>
-    <button type="button" class="btn btn-default">Access points</button>
-    <button type="button" class="btn btn-default">Firewalls</button>
-    <button type="button" class="btn btn-default">Power outlets</button>
-    <button type="button" class="btn btn-default">Sensors</button>
-    <button type="button" class="btn btn-default">Switches</button>
-    <button type="button" class="btn btn-default">VoIP phones</button>
+    <button type="button" class="btn btn-default">Wired</button>
+    <button type="button" class="btn btn-default">Wireless</button>
+    <button type="button" class="btn btn-default">VPN</button>
 </div>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>&#xa0;</th>
-            <th>Device</th>
-            <th>MAC</th>
-            <th>IP</th>
-            <th>Status</th>
-            <th>Manufacturer</th>
-            <th>Model</th>
-            <th>Firmware</th>
-            <th>Uptime</th>
+            <th>Name</th>
+            <th>IP / Subnet</th>
+            <th>DHCP</th>
+            <th>Security</th>
+            <th>Guest portal?</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tfoot>
         <tr>
-            <td colspan="10">&#xa0;</td>
+            <td colspan="7">&#xa0;</td>
         </tr>
     </tfoot>
-    <tbody data-bind="visible: !devices().length">
+    <tbody data-bind="visible: !networks().length">
     	<tr>
-    		<td colspan="10">There are no devices currently registered on the network.</td>
+    		<td colspan="7">There are no networks managed by this controller.</td>
     	</tr>
     </tbody>
-    <tbody data-bind="foreach: devices, visible: devices().length">
-		<tr data-bind="masonry: { columnWidth: 425, isAnimated: true }, ellipsis: true">
+    <tbody data-bind="foreach: networks, visible: networks().length">
+		<tr data-bind="ellipsis: true">
             <td><span class="fa fa-wifi"></span></td>
             <td><a href="#" data-bind="text: name"></a></td>
-            <td data-bind="text: macAddress"></td>
-            <td data-bind="text: (ipv6Address ? ipv6Address : ipv4Address)"></td>
-            <td><span class="status connected" data-bind="text: status"></span></td>
-            <td data-bind="text: manufacturer"></td>
-            <td data-bind="text: model"></td>
-            <td data-bind="text: firmwareVersion"></td>
-            <td data-bind="text: uptime"></td>
+            <td data-bind="text: ipSubnet"></td>
+            <td data-bind="text: (hasDhcp ? dhcpStartAddress + '&#x2014;' + dhcpEndAddress : '&#x2014;')"></td>
+            <td data-bind="text: wiFiSecurityLevel"></td>
+            <td data-bind="text: (hasGuestPortal ? guestPortalAddress : '&#x2014;'"></td>
             <td class="actions"><button class="btn btn-warning"><span class="fa fa-compass"></span> Locate</button></td>
 		</tr>
 	</tbody>
 </table>
+<div class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<form>
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Add a network</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="new_network_name">Network name / SSID</label>
+						<input type="text" class="form-control" id="new_network_name" placeholder="My New Network">
+					</div>
+					<div class="form-group">
+						<label>Network type</label>
+						<div class="btn-group btn-group-sm margin" role="group">
+						    <button type="button" class="btn btn-default active">Wired</button>
+						    <button type="button" class="btn btn-default">Wireless</button>
+						    <button type="button" class="btn btn-default">VPN</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="save_new_network">Save changes</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</form>
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

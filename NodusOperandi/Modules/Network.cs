@@ -1,24 +1,23 @@
 ﻿namespace NodusOperandi.Modules
 {
 
-    using Data;
     using Nancy;
     using Nancy.Security;
 
     public class Network : NancyModule
     {
 
-        public Network(IDeviceModelFactory deviceModelFactory, IDeviceRepository deviceRepository)
+        public Network()
         {
+            
             this.RequiresAuthentication();
 
-            Get["/network"] = parameters =>
-            {
-                deviceRepository.GetAll();
+            Get ["/network"] = parameters => {
+             
+                return View ["Network"];
 
-                return View["Network"];
             };
-            
+
         }
 
     }

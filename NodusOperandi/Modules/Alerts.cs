@@ -8,14 +8,12 @@
     public class Alerts : NancyModule
     {
 
-        public Alerts(IAlertModelFactory alertModelFactory, IAlertRepository alertRepository)
+        public Alerts()
         {
             this.RequiresAuthentication();
 
             Get["/alerts"] = parameters =>
             {
-                alertRepository.GetAll();
-
                 return View["Alerts"];
             };
 
